@@ -1,0 +1,1543 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../laminas.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Botellero de Pared PVC | DIMAFEL</title>
+    <link rel="icon" href="../Icons/PVG_Logo.png?v=2" type="image/png">
+    <style>
+        /* PRODUCT PAGE STYLES */
+        .product-detail-container {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .product-gallery {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            position: sticky;
+            top: 100px;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .main-image {
+            width: 100%;
+            aspect-ratio: 2/3;
+            background: linear-gradient(135deg, #E8E8E8, #F5F5F5);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: #999;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .main-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .gallery-thumbnails {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.8rem;
+            max-width: 150px;
+            margin: 0 auto;
+            font-family: 'Courier New', Courier, monospace;
+            font-style: italic;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .thumbnail {
+            width: 100%;
+            height: 80px;
+            background: linear-gradient(135deg, #E8E8E8, #F5F5F5);
+            border-radius: 6px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            color: #999;
+            overflow: hidden;
+            font-family: 'Courier New', Courier, monospace;
+            font-style: italic;
+        }
+
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .thumbnail:hover {
+            border-color: var(--primary-color);
+        }
+
+        .thumbnail.active {
+            border-color: var(--primary-color);
+            background-color: #f0f0f0;
+        }
+
+        .thumbnail.hidden {
+            display: none;
+        }
+
+        .thumbnail-group {
+            width: 100%;
+            height: 80px;
+            background: linear-gradient(135deg, #E8E8E8, #F5F5F5);
+            border-radius: 6px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .thumbnail-group img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .thumbnail-more {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            transition: var(--transition);
+        }
+
+        .thumbnail-group:hover {
+            border-color: var(--primary-color);
+        }
+
+        .thumbnail-group:hover .thumbnail-more {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .thumbnail-group.hidden {
+            display: none;
+        }
+
+        .product-info-detail {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .product-header {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .product-brand {
+            color: var(--secondary-color);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .product-title {
+            font-size: 1.8rem;
+            color: var(--text-color);
+            font-weight: bold;
+        }
+
+        .product-code {
+            font-size: 0.9rem;
+            color: var(--light-text);
+        }
+
+        .product-rating {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .stars {
+            color: #FFD700;
+            font-size: 1.1rem;
+        }
+
+        .rating-value {
+            font-weight: bold;
+            color: var(--text-color);
+        }
+
+        .rating-count {
+            color: var(--light-text);
+            font-size: 0.9rem;
+        }
+
+        .product-price-section {
+            display: flex;
+            align-items: baseline;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .product-price {
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .price-currency {
+            font-size: 1rem;
+        }
+
+        .price-unit {
+            font-size: 0.9rem;
+            color: var(--light-text);
+            margin-left: 0.3rem;
+        }
+
+        .product-stock {
+            color: var(--success-color);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .product-quantity-selector {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .quantity-box {
+            display: flex;
+            align-items: center;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .quantity-btn {
+            background: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: var(--text-color);
+            transition: var(--transition);
+        }
+
+        .quantity-btn:hover {
+            background-color: var(--background-color);
+        }
+
+        .quantity-input {
+            width: 50px;
+            text-align: center;
+            border: none;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        .add-to-cart-btn {
+            flex: 1;
+            padding: 12px 24px;
+            background-color: #E53935;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .add-to-cart-btn:hover {
+            background-color: #D32F2F;
+        }
+
+        .wishlist-btn {
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--border-color);
+            background: white;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: var(--text-color);
+            transition: var(--transition);
+        }
+
+        .wishlist-btn:hover {
+            border-color: #E53935;
+            color: #E53935;
+        }
+
+        .product-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 0.8rem;
+            margin: 1rem 0;
+            padding: 0.6rem;
+            background-color: transparent;
+            border-radius: 6px;
+            border-left: none;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.8rem;
+            color: #666;
+            line-height: 1.2;
+        }
+
+        .feature-icon {
+            color: var(--primary-color);
+            font-size: 0.75rem;
+            min-width: 14px;
+            flex-shrink: 0;
+            margin-top: 0px;
+            font-weight: bold;
+        }
+
+        .product-specs-inline {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            margin-top: 1rem;
+        }
+
+        .spec-card-inline {
+            background: white;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+        }
+
+        .spec-header-inline {
+            background-color: #f5f5f5;
+            padding: 0.8rem;
+            border-bottom: 1px solid var(--border-color);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .spec-header-inline:hover {
+            background-color: #efefef;
+        }
+
+        .spec-content {
+            padding: 0.8rem;
+            display: none;
+        }
+
+        .spec-content.active {
+            display: block;
+        }
+
+        .spec-table {
+            width: 100%;
+            font-size: 0.85rem;
+        }
+
+        .spec-table tr {
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .spec-table tr:last-child {
+            border-bottom: none;
+        }
+
+        .spec-table td {
+            padding: 0.5rem 0;
+        }
+
+        .spec-table td:first-child {
+            font-weight: 600;
+            width: 40%;
+            color: #555;
+        }
+
+        .spec-table td:last-child {
+            color: #777;
+        }        .product-actions-section {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .advisor-box {
+            background-color: #f9f9f9;
+            padding: 1rem;
+            border-radius: 6px;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .advisor-box p {
+            margin: 0;
+        }
+
+        .advisor-box p:first-child {
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+
+        .advisor-box p:last-child {
+            font-size: 0.9rem;
+            color: var(--light-text);
+        }
+
+        .action-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .action-buttons {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* SPECIFICATIONS SECTION */
+        .specifications-section {
+            margin-top: 3rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .spec-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .spec-header {
+            background-color: var(--background-color);
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        .spec-header:hover {
+            background-color: #f0f0f0;
+        }
+
+        .spec-content {
+            padding: 1rem;
+            display: none;
+        }
+
+        .spec-content.active {
+            display: block;
+        }
+
+        .spec-table {
+            width: 100%;
+        }
+
+        .spec-table tr {
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .spec-table tr:last-child {
+            border-bottom: none;
+        }
+
+        .spec-table td {
+            padding: 0.8rem;
+        }
+
+        .spec-table td:first-child {
+            font-weight: 600;
+            width: 40%;
+            background-color: var(--background-color);
+        }
+
+        /* REVIEWS SECTION */
+        .reviews-section {
+            margin-top: 3rem;
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .reviews-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .overall-rating {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .overall-rating-value {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .overall-rating-stars {
+            font-size: 1.3rem;
+            color: #FFD700;
+        }
+
+        .overall-rating-text {
+            font-size: 0.9rem;
+            color: var(--light-text);
+        }
+
+        .rating-bars {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .rating-bar {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .rating-stars {
+            min-width: 60px;
+            font-size: 0.9rem;
+        }
+
+        .rating-bar-container {
+            flex: 1;
+            height: 8px;
+            background-color: #E8E8E8;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .rating-bar-fill {
+            height: 100%;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .rating-count-bar {
+            min-width: 40px;
+            text-align: right;
+            color: var(--light-text);
+            font-size: 0.9rem;
+        }
+
+        .review-filter {
+            text-align: right;
+        }
+
+        .filter-select {
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            background: white;
+            cursor: pointer;
+        }
+
+        .review-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .review-item {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .review-item:last-child {
+            border-bottom: none;
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.8rem;
+        }
+
+        .review-author {
+            font-weight: bold;
+            color: var(--text-color);
+        }
+
+        .review-date {
+            font-size: 0.85rem;
+            color: var(--light-text);
+        }
+
+        .review-rating {
+            color: #FFD700;
+            font-size: 0.95rem;
+        }
+
+        .review-text {
+            color: var(--text-color);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .review-helpful {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.9rem;
+            color: var(--light-text);
+        }
+
+        .review-helpful button {
+            background: none;
+            border: none;
+            color: var(--primary-color);
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+        .rate-product-btn {
+            padding: 12px 24px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 0.95rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .rate-product-btn:hover {
+            background-color: #0D3A1F;
+        }
+
+        /* BREADCRUMB */
+        .breadcrumb {
+            max-width: 1400px;
+            margin: 1.5rem auto;
+            padding: 0 2rem;
+            display: flex;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb a {
+            color: var(--secondary-color);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .breadcrumb span {
+            color: var(--light-text);
+        }
+
+        .breadcrumb-active {
+            color: var(--text-color);
+            font-weight: bold;
+        }
+
+        @media (max-width: 1024px) {
+            .product-detail-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .specifications-section {
+                grid-template-columns: 1fr;
+            }
+
+            .reviews-header {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        main {
+            flex: 1;
+            padding-bottom: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .product-detail-container {
+                padding: 0 1rem;
+                margin: 1rem auto;
+            }
+
+            .product-title {
+                font-size: 1.3rem;
+            }
+
+            .product-price {
+                font-size: 1.8rem;
+            }
+
+            .gallery-thumbnails {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .reviews-header {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* LIGHTBOX/MODAL STYLES */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            overflow: auto;
+        }
+
+        .lightbox.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-content {
+            position: relative;
+            width: 90vw;
+            height: 90vh;
+            background: transparent;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .lightbox-image-wrapper {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .lightbox-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+            cursor: zoom-in;
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+            user-select: none;
+        }
+
+        .lightbox-image.zoomed {
+            cursor: zoom-out;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            background: rgba(0, 0, 0, 0.5);
+            border: none;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            z-index: 10;
+        }
+
+        .lightbox-close:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .lightbox-prev, .lightbox-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            font-size: 30px;
+            padding: 15px 20px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: var(--transition);
+            z-index: 10;
+        }
+
+        .lightbox-prev:hover, .lightbox-next:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .lightbox-prev {
+            left: 20px;
+        }
+
+        .lightbox-next {
+            right: 20px;
+        }
+
+        .lightbox-caption {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            color: white;
+            font-size: 18px;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-family: 'Courier New', Courier, monospace;
+            font-style: italic;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <!-- TOP HEADER -->
+    <div class="top-header">
+        <div class="header-info">
+            <span><i class="fas fa-phone"></i> SERVICIO AL CLIENTE +57 3242104067</span>
+            <span><i class="fas fa-store"></i> TIENDA VIRTUAL Y PRODUCTOS A MEDIDA</span>
+            <span><i class="fas fa-question-circle"></i> acabadosdimafel@gmail.com</span>
+            <span><i class="fas fa-map-marked-alt"></i> A NIVEL NACIONAL (COLOMBIA)</span>
+        </div>
+
+    </div>
+
+    <!-- MAIN HEADER -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <img src="../Icons/PVG_Logo.png?v=2" alt="PVG" class="logo-img">
+                <span>DIMAFEL</span>
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="¿Qué estás buscando?">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            <nav class="header-nav">
+                <a href="../index.html" class="nav-item">
+                    <i class="fas fa-home"></i>
+                    <span>Inicio</span>
+                </a>
+                <a href="../SobreNosotros.html" class="nav-item">
+                    <i class="fas fa-info-circle"></i>
+                    <span>Sobre Nosotros</span>
+                </a>
+                <a href="#" class="nav-item" id="miCuentaBtn">
+                    <i class="fas fa-user"></i>
+                    <span>Mi Cuenta</span>
+                </a>
+                <a href="../cart.html" class="nav-item carrito-item">
+                    <span class="carrito-badge">0</span>
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>Carrito</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- BREADCRUMB -->
+    <div class="breadcrumb">
+        <a href="../index.html">Inicio</a>
+        <span>/</span>
+        <a href="../general_decoracion.html">Decoración</a>
+        <span>/</span>
+        <span class="breadcrumb-active">Botellero de Pared PVC</span>
+    </div>
+
+    <!-- PRODUCT DETAIL -->
+    <main>
+        <div class="product-detail-container">
+            <!-- GALLERY -->
+            <div class="product-gallery">
+                <div class="main-image" id="mainImage" style="position: relative;">
+                    <img src="../ImagesProductos/botellero1-1.png" alt="Botellero de Pared PVC">
+                    <button onclick="previousImage()" style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); background: rgba(0, 0, 0, 0.5); color: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; transition: background-color 0.3s; z-index: 10;">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button onclick="nextImage()" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: rgba(0, 0, 0, 0.5); color: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; transition: background-color 0.3s; z-index: 10;">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                <div class="gallery-thumbnails" id="galleryThumbnails">
+                    <div class="thumbnail active" onclick="changeImage(this)">
+                        <img src="../ImagesProductos/botellero1-1.png" alt="Botellero de Pared PVC - Vista Principal">
+                    </div>
+                    <div class="thumbnail" onclick="changeImage(this)">
+                        <img src="../ImagesProductos/botellero1-2.png" alt="Botellero de Pared PVC - Instalado">
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRODUCT INFO -->
+            <div class="product-info-detail">
+                <div class="product-header">
+                    <span class="product-brand">DIMAFEL</span>
+                    <h1 class="product-title">Botellero de Pared PVC</h1>
+                    <span class="product-code">Modelo BOP-2026 | Código 015</span>
+                    <div class="product-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="rating-value">4.9</span>
+                        <span class="rating-count">(12 reseñas)</span>
+                    </div>
+                </div>
+
+                <div class="product-actions-section">
+                    <div class="advisor-box">
+                        <p>Comprar con un asesor</p>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button class="add-to-cart-btn" style="background-color: var(--secondary-color);" onclick="programarVisita()">
+                            <i class="fas fa-calendar" style="margin-right: 0.5rem;"></i> Programa tu visita
+                        </button>
+                        <button class="add-to-cart-btn" style="background-color: #1976D2;" onclick="cotizarBotellero()">
+                            <i class="fas fa-file-invoice" style="margin-right: 0.5rem;"></i> Cotiza tu botellero
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-features">
+                    <div class="feature-item">
+                        <span class="feature-icon"><i class="fas fa-check"></i></span>
+                        <span><strong>Material:</strong> PVC resistente y duradero</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon"><i class="fas fa-check"></i></span>
+                        <span><strong>Diseño:</strong> Moderno y elegante para paredes</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon"><i class="fas fa-check"></i></span>
+                        <span><strong>Capacidad:</strong> Almacenamiento funcional de bebidas</span>
+                    </div>
+                </div>
+
+                <div class="product-specs-inline">
+                    <div class="spec-card-inline">
+                        <div class="spec-header-inline" onclick="toggleSpec(event)">
+                            Ficha técnica
+                            <span><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="spec-content">
+                            <div style="padding: 0.5rem 0; font-size: 0.85rem; color: #333;">
+                                <p style="margin: 0 0 1rem 0; font-weight: 600;">Ingresa tus medidas personalizadas:</p>
+                                
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                                    <div>
+                                        <label style="display: block; font-weight: 600; margin-bottom: 0.3rem; font-size: 0.8rem;">Ancho (cm)</label>
+                                        <input type="number" id="fichaAncho" placeholder="180" style="width: 100%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 4px; font-size: 0.85rem;">
+                                    </div>
+                                    <div>
+                                        <label style="display: block; font-weight: 600; margin-bottom: 0.3rem; font-size: 0.8rem;">Alto (cm)</label>
+                                        <input type="number" id="fichaAlto" placeholder="85" style="width: 100%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 4px; font-size: 0.85rem;">
+                                    </div>
+                                    <div>
+                                        <label style="display: block; font-weight: 600; margin-bottom: 0.3rem; font-size: 0.8rem;">Acabado</label>
+                                        <select id="fichaAcabado" style="width: 100%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 4px; font-size: 0.85rem;">
+                                            <option>Blanco</option>
+                                            <option>Caoba</option>
+                                            <option>Gris Claro</option>
+                                            <option>Wengué</option>
+                                            <option>Espejo</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div style="margin-bottom: 1rem;">
+                                    <label style="display: block; font-weight: 600; margin-bottom: 0.3rem; font-size: 0.8rem;">Observaciones y/o Especificaciones</label>
+                                    <textarea id="fichaObservaciones" placeholder="Cuéntanos detalles adicionales, necesidades especiales, etc..." style="width: 100%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 4px; font-size: 0.85rem; min-height: 80px; font-family: Arial, sans-serif; resize: vertical;"></textarea>
+                                </div>
+
+
+                                <button onclick="enviarFichaTecnicaWhatsApp()" style="width: 100%; padding: 0.7rem; background-color: #25D366; color: white; border: none; border-radius: 4px; font-size: 0.9rem; font-weight: 600; cursor: pointer; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem; transition: background-color 0.3s;">
+                                    <i class="fab fa-whatsapp"></i> Enviar medidas por WhatsApp
+                                </button>
+
+                                <div style="background-color: #FFF3CD; border-left: 4px solid #FFC107; padding: 0.8rem; border-radius: 4px; margin-top: 1rem;">
+                                    <p style="margin: 0; font-size: 0.8rem; color: #856404; font-weight: 600;">
+                                        <i class="fas fa-info-circle" style="margin-right: 0.5rem;"></i>Importante
+                                    </p>
+                                    <p style="margin: 0.3rem 0 0 0; font-size: 0.75rem; color: #856404; line-height: 1.3;">
+                                        El precio definitivo se determina en la visita técnica, ya que las medidas que proporciones pueden variar en la práctica. Nuestro equipo realizará un diagnóstico preciso para ajustar el presupuesto.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                <!-- REVIEWS SECTION -->
+                <div class="reviews-section" style="margin-top: 2rem; padding: 1.5rem; background: white; border: 1px solid var(--border-color); border-radius: 8px;">
+                    <h3 style="margin-top: 0; margin-bottom: 1.5rem; font-size: 1.1rem;">Reseñas</h3>
+
+                    <div class="reviews-header" style="display: grid; grid-template-columns: 1fr; gap: 1rem; margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border-color);">
+                        <div class="overall-rating">
+                            <div class="overall-rating-value" style="font-size: 2rem;">4.9</div>
+                            <div class="overall-rating-stars">★★★★★</div>
+                            <div class="overall-rating-text" style="font-size: 0.85rem;">12 reseñas</div>
+                            <div class="overall-rating-text" style="margin-top: 0.5rem; font-size: 0.85rem;">12 de 12 (100%) recomiendan</div>
+                        </div>
+                    </div>
+
+                    <div class="review-list" style="display: flex; flex-direction: column; gap: 1rem;">
+                        <div class="review-item" style="padding: 0.8rem 0; border-bottom: 1px solid #f0f0f0;">
+                            <div class="review-header" style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
+                                <div>
+                                    <div class="review-author" style="font-weight: bold; font-size: 0.9rem;">Sebastián Vega</div>
+                                    <div class="review-date" style="font-size: 0.8rem; color: var(--light-text);">Hace 2 meses</div>
+                                </div>
+                                <div class="review-rating" style="color: #FFD700; font-size: 0.9rem;">★★★★★</div>
+                            </div>
+                            <div class="review-text" style="font-size: 0.9rem; color: #666; line-height: 1.4;">Perfecto para guardar las botellas de vino! Muy elegante y ocupa poco espacio en la pared. Excelente compra.</div>
+                        </div>
+
+                        <div class="review-item" style="padding: 0.8rem 0; border-bottom: 1px solid #f0f0f0;">
+                            <div class="review-header" style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
+                                <div>
+                                    <div class="review-author" style="font-weight: bold; font-size: 0.9rem;">Valentina Ross</div>
+                                    <div class="review-date" style="font-size: 0.8rem; color: var(--light-text);">Hace 1 mes</div>
+                                </div>
+                                <div class="review-rating" style="color: #FFD700; font-size: 0.9rem;">★★★★★</div>
+                            </div>
+                            <div class="review-text" style="font-size: 0.9rem; color: #666; line-height: 1.4;">Lleva más de un mes en mi cocina y se ve genial. La calidad del PVC es muy buena y los acabados son impecables.</div>
+                        </div>
+
+                        <div class="review-item" style="padding: 0.8rem 0; border-bottom: 1px solid #f0f0f0;">
+                            <div class="review-header" style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
+                                <div>
+                                    <div class="review-author" style="font-weight: bold; font-size: 0.9rem;">Mario Contreras</div>
+                                    <div class="review-date" style="font-size: 0.8rem; color: var(--light-text);">Hace 3 semanas</div>
+                                </div>
+                                <div class="review-rating" style="color: #FFD700; font-size: 0.9rem;">★★★★★</div>
+                            </div>
+                            <div class="review-text" style="font-size: 0.9rem; color: #666; line-height: 1.4;">Muy recomendado! La instalación fue fácil (15 minutos) y sostiene perfectamente las botellas. Buen precio-calidad.</div>
+                        </div>
+
+                        <div class="review-item" style="padding: 0.8rem 0; border-bottom: 1px solid #f0f0f0;">
+                            <div class="review-header" style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
+                                <div>
+                                    <div class="review-author" style="font-weight: bold; font-size: 0.9rem;">Catalina Mendez</div>
+                                    <div class="review-date" style="font-size: 0.8rem; color: var(--light-text);">Hace 2 semanas</div>
+                                </div>
+                                <div class="review-rating" style="color: #FFD700; font-size: 0.9rem;">★★★★★</div>
+                            </div>
+                            <div class="review-text" style="font-size: 0.9rem; color: #666; line-height: 1.4;">Es exactamente lo que buscaba. Muy práctico y bonito. Mis amigas también lo quieren cuando lo ven en mi casa!</div>
+                        </div>
+
+                        <div class="review-item" style="padding: 0.8rem 0; border-bottom: 1px solid #f0f0f0;">
+                            <div class="review-header" style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
+                                <div>
+                                    <div class="review-author" style="font-weight: bold; font-size: 0.9rem;">Ricardo Díaz</div>
+                                    <div class="review-date" style="font-size: 0.8rem; color: var(--light-text);">Hace 10 días</div>
+                                </div>
+                                <div class="review-rating" style="color: #FFD700; font-size: 0.9rem;">★★★★</div>
+                            </div>
+                            <div class="review-text" style="font-size: 0.9rem; color: #666; line-height: 1.4;">Muy buen producto, aunque me hubiera gustado que tuviera más capacidad. Pero para el espacio que tenía, fue perfecto.</div>
+                        </div>
+
+                        <div class="review-item" style="padding: 0.8rem 0; border-bottom: 1px solid #f0f0f0;">
+                            <div class="review-header" style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
+                                <div>
+                                    <div class="review-author" style="font-weight: bold; font-size: 0.9rem;">Fernanda Rios</div>
+                                    <div class="review-date" style="font-size: 0.8rem; color: var(--light-text);">Hace 1 semana</div>
+                                </div>
+                                <div class="review-rating" style="color: #FFD700; font-size: 0.9rem;">★★★★★</div>
+                            </div>
+                            <div class="review-text" style="font-size: 0.9rem; color: #666; line-height: 1.4;">Fantástico! Es resistente, moderno y no consume mucho espacio. Lo monté rápidamente en mi comedor. Muy satisfecha.</div>
+                        </div>
+
+                        <div class="review-item" style="padding: 0.8rem 0; border-bottom: 1px solid #f0f0f0;">
+                            <div class="review-header" style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
+                                <div>
+                                    <div class="review-author" style="font-weight: bold; font-size: 0.9rem;">Gustavo Parra</div>
+                                    <div class="review-date" style="font-size: 0.8rem; color: var(--light-text);">Hace 5 días</div>
+                                </div>
+                                <div class="review-rating" style="color: #FFD700; font-size: 0.9rem;">★★★★★</div>
+                            </div>
+                            <div class="review-text" style="font-size: 0.9rem; color: #666; line-height: 1.4;">Superó mis expectativas! Muy bien hecho, excelente acabado y muy estable. Es un producto de calidad premium.</div>
+                        </div>
+
+                        <div class="review-item" style="padding: 0.8rem 0; border-bottom: 1px solid #f0f0f0;">
+                            <div class="review-header" style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
+                                <div>
+                                    <div class="review-author" style="font-weight: bold; font-size: 0.9rem;">Lorena Aceves</div>
+                                    <div class="review-date" style="font-size: 0.8rem; color: var(--light-text);">Hace 4 días</div>
+                                </div>
+                                <div class="review-rating" style="color: #FFD700; font-size: 0.9rem;">★★★★★</div>
+                            </div>
+                            <div class="review-text" style="font-size: 0.9rem; color: #666; line-height: 1.4;">Llevo meses con este botellero y sigue como nuevo. Resiste perfectamente el peso y se limpia muy fácil.</div>
+                        </div>
+
+                        <div class="review-item" style="padding: 0.8rem 0; border-bottom: 1px solid #f0f0f0;">
+                            <div class="review-header" style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
+                                <div>
+                                    <div class="review-author" style="font-weight: bold; font-size: 0.9rem;">Orlando Gómez</div>
+                                    <div class="review-date" style="font-size: 0.8rem; color: var(--light-text);">Hace 3 días</div>
+                                </div>
+                                <div class="review-rating" style="color: #FFD700; font-size: 0.9rem;">★★★★★</div>
+                            </div>
+                            <div class="review-text" style="font-size: 0.9rem; color: #666; line-height: 1.4;">Excelente para mi negocio de restaurante. Los clientes quedan impresionados. La calidad es definitivamente premium.</div>
+                        </div>
+
+                        <div class="review-item" style="padding: 0.8rem 0; border-bottom: 1px solid #f0f0f0;">
+                            <div class="review-header" style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
+                                <div>
+                                    <div class="review-author" style="font-weight: bold; font-size: 0.9rem;">Beatriz Campos</div>
+                                    <div class="review-date" style="font-size: 0.8rem; color: var(--light-text);">Hace 2 días</div>
+                                </div>
+                                <div class="review-rating" style="color: #FFD700; font-size: 0.9rem;">★★★★★</div>
+                            </div>
+                            <div class="review-text" style="font-size: 0.9rem; color: #666; line-height: 1.4;">Perfectísimo! Exactamente como se vé en las fotos. Muy resistente y le da un toque decorativo a mi cocina muy bonito.</div>
+                        </div>
+
+                        <div class="review-item" style="padding: 0.8rem 0;">
+                            <div class="review-header" style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
+                                <div>
+                                    <div class="review-author" style="font-weight: bold; font-size: 0.9rem;">Pablo Herrera</div>
+                                    <div class="review-date" style="font-size: 0.8rem; color: var(--light-text);">Hace 1 día</div>
+                                </div>
+                                <div class="review-rating" style="color: #FFD700; font-size: 0.9rem;">★★★★★</div>
+                            </div>
+                            <div class="review-text" style="font-size: 0.9rem; color: #666; line-height: 1.4;">Lo mejor de mi compra este año! Material de primera calidad, excelente diseño minimalista. Ya recomendé DIMAFEL a mis amigos.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>Sobre Nosotros</h4>
+                <p>DIMAFEL es tu tienda online de confianza para materiales de construcción (Manejamos principalmente PVC y Aglomerado) y mejora del hogar.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Redes Sociales</h4>
+                <ul>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">X</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contacto</h4>
+                <p>Email: acabadosdimafel@gmail.com</p>
+                <p>Teléfono: +57 3242104067</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 DIMAFEL. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- WHATSAPP BUTTON -->
+    <div class="whatsapp-button" id="whatsappBtn">
+        <i class="fab fa-whatsapp"></i>
+        <span class="whatsapp-tooltip">¡Chatea con nosotros!</span>
+    </div>
+
+    <!-- LIGHTBOX MODAL -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content" id="lightboxContent">
+            <div class="lightbox-image-wrapper" id="lightboxImageWrapper">
+                <img class="lightbox-image" id="lightboxImage" src="" alt="Imagen ampliada">
+            </div>
+            <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+            <button class="lightbox-prev" onclick="lightboxPrevious()"><i class="fas fa-chevron-left"></i></button>
+            <button class="lightbox-next" onclick="lightboxNext()"><i class="fas fa-chevron-right"></i></button>
+            <div class="lightbox-caption" id="lightboxCaption"></div>
+        </div>
+    </div>
+
+    <script>
+        // Array con las imágenes de la galería
+        const galleryImages = [
+            { src: '../ImagesProductos/botellero1-1.png', alt: 'Botellero de Pared PVC - Vista Principal' },
+            { src: '../ImagesProductos/botellero1-2.png', alt: 'Botellero de Pared PVC - Instalado' }
+        ];
+
+        let currentImageIndex = 0;
+        let isZoomed = false;
+        let isDragging = false;
+        let dragStartX = 0;
+        let dragStartY = 0;
+        let translateX = 0;
+        let translateY = 0;
+        let hasDragged = false;
+
+        function changeImage(element) {
+            // Encontrar el índice del thumbnail clickeado
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            thumbnails.forEach((thumb, index) => {
+                if (thumb === element) {
+                    currentImageIndex = index;
+                }
+            });
+
+            // Actualizar clases activas
+            thumbnails.forEach(thumb => {
+                thumb.classList.remove('active');
+            });
+            element.classList.add('active');
+            
+            // Actualizar imagen principal
+            const img = element.querySelector('img');
+            if (img) {
+                const mainImg = document.querySelector('.main-image img');
+                if (mainImg) {
+                    mainImg.src = img.src;
+                    mainImg.alt = img.alt;
+                }
+            }
+        }
+
+        function nextImage() {
+            currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+            updateMainImage();
+        }
+
+        function previousImage() {
+            currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+            updateMainImage();
+        }
+
+        function updateMainImage() {
+            // Actualizar imagen principal
+            const mainImg = document.querySelector('.main-image img');
+            mainImg.src = galleryImages[currentImageIndex].src;
+            mainImg.alt = galleryImages[currentImageIndex].alt;
+
+            // Actualizar thumbnails
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            thumbnails.forEach((thumb, index) => {
+                thumb.classList.remove('active');
+                if (index === currentImageIndex) {
+                    thumb.classList.add('active');
+                }
+            });
+        }
+
+        function toggleSpec(event) {
+            const header = event.currentTarget;
+            const content = header.nextElementSibling;
+            const icon = header.querySelector('span i');
+            
+            content.classList.toggle('active');
+            icon.classList.toggle('fa-chevron-down');
+            icon.classList.toggle('fa-chevron-up');
+        }
+
+        function expandThumbnails(event) {
+            event.stopPropagation();
+            const thumbnailGroup = document.getElementById('thumbnailGroup');
+            const hiddenThumbnails = document.querySelectorAll('.thumbnail.hidden');
+            
+            thumbnailGroup.classList.toggle('expanded');
+            thumbnailGroup.classList.toggle('hidden');
+            hiddenThumbnails.forEach(thumb => {
+                thumb.classList.toggle('hidden');
+            });
+        }
+
+        function increaseQuantity() {
+            const quantityInput = document.getElementById('quantity');
+            quantityInput.value = parseInt(quantityInput.value) + 1;
+        }
+
+        function decreaseQuantity() {
+            const quantityInput = document.getElementById('quantity');
+            if (parseInt(quantityInput.value) > 1) {
+                quantityInput.value = parseInt(quantityInput.value) - 1;
+            }
+        }
+
+        function programarVisita() {
+            const mensaje = `Hola, me interesa el Closet Modular PVC de DIMAFEL. Quisiera programar una visita técnica para conocer más sobre el producto.`;
+            window.open(`https://wa.me/573007982780?text=${encodeURIComponent(mensaje)}`, '_blank');
+        }
+
+        function cotizarBotellero() {
+            const mensaje = `Hola, me interesa el Botellero de Pared PVC de DIMAFEL. Quisiera recibir una cotización detallada para este producto.`;
+            window.open(`https://wa.me/573007982780?text=${encodeURIComponent(mensaje)}`, '_blank');
+        }
+
+        function enviarFichaTecnicaWhatsApp() {
+            const ancho = document.getElementById('fichaAncho').value;
+            const alto = document.getElementById('fichaAlto').value;
+            const acabado = document.getElementById('fichaAcabado').value;
+            const observaciones = document.getElementById('fichaObservaciones').value;
+
+            if (!ancho || !alto) {
+                alert('Por favor completa los campos obligatorios (Ancho y Alto)');
+                return;
+            }
+
+            let mensaje = `Hola, me interesa el Closet Modular PVC con las siguientes medidas personalizadas:%0A%0AAncho: ${ancho} cm%0AAlto: ${alto} cm%0AAcabado: ${acabado}%0A`;
+            
+            if (observaciones.trim()) {
+                mensaje += `%0AObservaciones:%0A${encodeURIComponent(observaciones)}%0A`;
+            }
+
+            mensaje += `%0A%0AQuisiera recibir una cotización y agendar una visita técnica.`;
+            
+            // Abrir WhatsApp
+            window.open(`https://wa.me/573007982780?text=${mensaje}`, '_blank');
+        }
+
+        // ZOOM FUNCTIONS
+        function toggleZoom(event) {
+            event.stopPropagation();
+            const lightboxImage = document.getElementById('lightboxImage');
+            
+            if (isZoomed) {
+                // Hacer zoom out
+                isZoomed = false;
+                translateX = 0;
+                translateY = 0;
+                lightboxImage.style.transform = 'scale(1) translate(0, 0)';
+                lightboxImage.classList.remove('zoomed');
+            } else {
+                // Hacer zoom in
+                isZoomed = true;
+                lightboxImage.style.transform = 'scale(2) translate(0, 0)';
+                lightboxImage.classList.add('zoomed');
+            }
+        }
+
+        function resetZoom() {
+            isZoomed = false;
+            translateX = 0;
+            translateY = 0;
+            const lightboxImage = document.getElementById('lightboxImage');
+            lightboxImage.style.transform = 'scale(1) translate(0, 0)';
+            lightboxImage.classList.remove('zoomed');
+        }
+
+        function applyTransform() {
+            const lightboxImage = document.getElementById('lightboxImage');
+            const scale = isZoomed ? 2 : 1;
+            lightboxImage.style.transform = `scale(${scale}) translate(${translateX}px, ${translateY}px)`;
+        }
+
+        // LIGHTBOX FUNCTIONS
+        function openLightbox(imgElement) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImage = document.getElementById('lightboxImage');
+            const lightboxCaption = document.getElementById('lightboxCaption');
+            
+            lightboxImage.src = imgElement.src;
+            lightboxCaption.textContent = imgElement.alt;
+            
+            // Encontrar el índice de la imagen en el array
+            const index = Array.from(document.querySelectorAll('.thumbnail img')).indexOf(imgElement);
+            if (index !== -1) {
+                currentImageIndex = index;
+            }
+            
+            resetZoom();
+            hasDragged = false;
+            isDragging = false;
+            lightboxImage.style.cursor = 'pointer';
+            lightbox.classList.add('active');
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            resetZoom();
+            hasDragged = false;
+            isDragging = false;
+            const lightboxImage = document.getElementById('lightboxImage');
+            lightboxImage.style.cursor = 'zoom-in';
+        }
+
+        function lightboxNext() {
+            currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+            updateLightboxImage();
+            resetZoom();
+        }
+
+        function lightboxPrevious() {
+            currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+            updateLightboxImage();
+            resetZoom();
+        }
+
+        function updateLightboxImage() {
+            const lightboxImage = document.getElementById('lightboxImage');
+            const lightboxCaption = document.getElementById('lightboxCaption');
+            
+            lightboxImage.src = galleryImages[currentImageIndex].src;
+            lightboxCaption.textContent = galleryImages[currentImageIndex].alt;
+        }
+
+        // Cerrar lightbox si se hace clic fuera de la imagen
+        document.addEventListener('DOMContentLoaded', function() {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxContent = document.getElementById('lightboxContent');
+            const lightboxImage = document.getElementById('lightboxImage');
+            const lightboxImageWrapper = document.getElementById('lightboxImageWrapper');
+            
+            lightbox.addEventListener('click', function(event) {
+                if (event.target === lightbox) {
+                    closeLightbox();
+                }
+            });
+
+            // Navegación con flechas del teclado
+            document.addEventListener('keydown', function(e) {
+                const lightboxElement = document.getElementById('lightbox');
+                const isLightboxOpen = lightboxElement.classList.contains('active');
+                
+                if (e.key === 'ArrowLeft') {
+                    if (isLightboxOpen) {
+                        lightboxPrevious();
+                    } else {
+                        previousImage();
+                    }
+                } else if (e.key === 'ArrowRight') {
+                    if (isLightboxOpen) {
+                        lightboxNext();
+                    } else {
+                        nextImage();
+                    }
+                }
+            });
+
+            // Dragging para desplazar imagen zoomeada
+            lightboxImage.addEventListener('mousedown', function(e) {
+                if (isZoomed) {
+                    isDragging = true;
+                    hasDragged = false;
+                    dragStartX = e.clientX - translateX;
+                    dragStartY = e.clientY - translateY;
+                    lightboxImage.style.cursor = 'grabbing';
+                    e.preventDefault();
+                }
+            });
+
+            document.addEventListener('mousemove', function(e) {
+                if (isDragging && isZoomed) {
+                    const moveX = Math.abs(e.clientX - dragStartX - translateX);
+                    const moveY = Math.abs(e.clientY - dragStartY - translateY);
+                    
+                    if (moveX > 5 || moveY > 5) {
+                        hasDragged = true;
+                    }
+                    
+                    translateX = e.clientX - dragStartX;
+                    translateY = e.clientY - dragStartY;
+                    
+                    // Limitar el desplazamiento basado en el tamaño del contenedor
+                    // Cuando scale = 2, la imagen puede desplazarse hasta 50% de cada lado
+                    const wrapper = document.getElementById('lightboxImageWrapper');
+                    const maxTranslateX = wrapper.offsetWidth / 4;
+                    const maxTranslateY = wrapper.offsetHeight / 4;
+                    
+                    translateX = Math.max(-maxTranslateX, Math.min(maxTranslateX, translateX));
+                    translateY = Math.max(-maxTranslateY, Math.min(maxTranslateY, translateY));
+                    
+                    applyTransform();
+                }
+            });
+
+            document.addEventListener('mouseup', function() {
+                if (isDragging) {
+                    isDragging = false;
+                    if (isZoomed) {
+                        lightboxImage.style.cursor = 'zoom-out';
+                    }
+                }
+            });
+
+            // Click en la imagen para zoom (solo si no está arrastrando)
+            lightboxImage.addEventListener('click', function(e) {
+                e.stopPropagation();
+                if (!hasDragged) {
+                    toggleZoom(e);
+                }
+            });
+
+            // Agregar click a todas las imágenes (thumbnails y main)
+            document.querySelectorAll('.thumbnail img, .main-image img').forEach(img => {
+                img.style.cursor = 'pointer';
+                img.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    openLightbox(this);
+                });
+            });
+        });
+    </script>
+       <script src="../script.js"></script>
+    <script src="../cart.js"></script>
+</body>
+</html>

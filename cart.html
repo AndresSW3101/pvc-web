@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="cart.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>PVG || Carrito de Compras</title>
+    <link rel="icon" href="Icons/PVG_Logo.png?v=2" type="image/png">
+    
+</head>
+<body>
+    <!-- TOP HEADER -->
+    <div class="top-header">
+        <div class="header-info">
+            <span><i class="fas fa-phone"></i> SERVICIO AL CLIENTE +57 3242104067</span>
+            <span><i class="fas fa-store"></i> TIENDA VIRTUAL Y PRODUCTOS A MEDIDA</span>
+            <span><i class="fas fa-question-circle"></i> acabadosdimafel@gmail.com</span>
+            <span><i class="fas fa-map-marked-alt"></i> A NIVEL NACIONAL (COLOMBIA)</span>
+        </div>
+
+    </div>
+
+    <!-- MAIN HEADER -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <img src="Icons/PVG_Logo.png?v=2" alt="PVG" class="logo-img">
+                <span>PVG</span>
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="¿Qué estás buscando?">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            <nav class="header-nav">
+                <a href="index.html" class="nav-item">
+                    <i class="fas fa-home"></i>
+                    <span>Inicio</span>
+                </a>
+                <a href="SobreNosotros.html" class="nav-item">
+                    <i class="fas fa-info-circle"></i>
+                    <span>Sobre Nosotros</span>
+                </a>
+                <a href="#" class="nav-item" id="miCuentaBtn">
+                    <i class="fas fa-user"></i>
+                    <span>Mi Cuenta</span>
+                </a>
+                <a href="cart.html" class="nav-item carrito-item active">
+                    <span class="carrito-badge">0</span>
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>Carrito</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- BREADCRUMB Y PROGRESO -->
+    <div class="cart-container">
+        <div class="breadcrumb">
+            <span class="active"><i class="fas fa-shopping-bag"></i> Carrito</span>
+            <span class="breadcrumb-arrow">→</span>
+            <span><i class="fas fa-truck"></i> Entrega</span>
+            <span class="breadcrumb-arrow">→</span>
+            <span><i class="fas fa-credit-card"></i> Pago</span>
+        </div>
+
+        <div class="progress-bar">
+            <div class="progress" style="width: 33.33%"></div>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main class="cart-main">
+        <div class="cart-content">
+            <!-- CARRITO -->
+            <div class="cart-section">
+                <h1>Mi Carrito de Compras</h1>
+                
+                <div class="cart-empty" id="cartEmpty">
+                    <div class="empty-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h2>Tu carrito está vacío</h2>
+                    <p>Parece que aún no has agregado ningún producto.</p>
+                    <button onclick="continueShopping()" class="btn btn-primary">
+                        <i class="fas fa-arrow-left"></i> Continuar Comprando
+                    </button>
+                </div>
+
+                <div class="cart-items" id="cartItems" style="display: none;">
+                    <!-- Items se cargarán aquí dinámicamente -->
+                </div>
+
+                <div class="cart-summary" id="cartSummary" style="display: none;">
+                    <div class="summary-row">
+                        <span>Subtotal:</span>
+                        <span id="subtotal">$0.00</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Envío:</span>
+                        <span id="shipping">$0.00</span>
+                    </div>
+                    <div class="summary-row discount" id="discountRow" style="display: none;">
+                        <span>Descuento:</span>
+                        <span id="discount">-$0.00</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span>Total:</span>
+                        <span id="total">$0.00</span>
+                    </div>
+
+                    <div class="promo-code">
+                        <input type="text" id="promoInput" placeholder="Código de promoción (si tienes)">
+                        <button class="btn-apply" onclick="applyPromo()">Aplicar</button>
+                    </div>
+
+                    <div style="display: flex; gap: 10px;">
+                        <button class="btn btn-apply" onclick="continueShopping()" style="flex: 1; background-color: #00897B;">
+                            <i class="fas fa-arrow-left"></i> Continuar Comprando
+                        </button>
+                        <button class="btn btn-checkout" onclick="proceedToCheckout()" style="flex: 1;">
+                            Continuar al Pago <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SIDEBAR -->
+            <aside class="cart-sidebar">
+                <!-- SEGURIDAD -->
+                <div class="info-card security">
+                    <div class="info-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Compra Segura</h3>
+                    <p>Tus datos personales se mantienen bajo estricta confidencialidad y están protegidos.</p>
+                </div>
+
+                <!-- SATISFACCIÓN -->
+                <div class="info-card satisfaction">
+                    <div class="info-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3>Satisfacción Garantizada</h3>
+                    <p>Puedes devolver tu compra en un plazo máximo de 30 días. Si el producto no está en perfecto estado, sin uso, tenemos todos sus accesorios, manuales y embalaje original.</p>
+                </div>
+
+                <!-- AYUDA -->
+                <div class="info-card help">
+                    <div class="info-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>¿Necesitas Ayuda?</h3>
+                    <p>Si necesitas ayuda para completar tu compra, llámanos al <strong>320 889 9933</strong></p>
+                </div>
+
+                <!-- MÉTODOS DE PAGO -->
+                <div class="payment-methods">
+                    <h3>Métodos de Pago</h3>
+                    <div class="methods-grid">
+                        <div class="method">
+                            <i class="fas fa-credit-card"></i>
+                            <span>Tarjeta</span>
+                        </div>
+                        <div class="method">
+                            <i class="fas fa-wallet"></i>
+                            <span>Billetera</span>
+                        </div>
+                        <div class="method">
+                            <i class="fas fa-mobile-alt"></i>
+                            <span>PSE</span>
+                        </div>
+                        <div class="method">
+                            <i class="fas fa-university"></i>
+                            <span>Transferencia</span>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>Sobre Nosotros</h4>
+                <p>DIMAFEL es tu tienda online de confianza para materiales de construcción (Manejamos principalmente PVC y Aglomerado) y mejora del hogar.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Redes Sociales</h4>
+                <ul>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">X</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contacto</h4>
+                <p>Email: acabadosdimafel@gmail.com</p>
+                <p>Teléfono: +57 3242104067</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 DIMAFEL. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- WHATSAPP BUTTON -->
+    <div class="whatsapp-button" id="whatsappBtn">
+        <i class="fab fa-whatsapp"></i>
+        <span class="whatsapp-tooltip">¡Chatea con nosotros!</span>
+    </div>
+
+    <!-- LOGIN MODAL (shared) -->
+    <div class="login-modal" id="loginModal">
+        <div class="login-modal-content">
+            <button class="close-modal" id="closeModal">&times;</button>
+            
+            <div class="login-container">
+                <!-- TAB LOGIN -->
+                <div class="login-tab active" id="loginTab">
+                    <h2>Inicia sesión con tu cuenta</h2>
+                    
+                    <form class="login-form">
+                        <div class="form-group">
+                            <label for="email">Ingresa tu correo</label>
+                            <input type="email" id="email" placeholder="ejemplo@correo.com" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="password">Contraseña</label>
+                            <input type="password" id="password" placeholder="Tu contraseña segura" required>
+                        </div>
+                        
+                        <button type="submit" class="btn-login">Iniciar Sesión</button>
+                        
+                        <p class="forgot-password">
+                            <a href="#">¿Olvidaste tu contraseña?</a>
+                        </p>
+                    </form>
+                    
+                    <div class="divider">O</div>
+                    
+                    <button class="btn-tab-switch" id="switchToRegister">Crear nueva cuenta</button>
+                </div>
+                
+                <!-- TAB REGISTER -->
+                <div class="login-tab" id="registerTab">
+                    <h2>Crea tu cuenta</h2>
+                    <p class="register-subtitle">Si aún no la tienes, vive una experiencia completa de compra:</p>
+                    
+                    <form class="register-form">
+                        <div class="form-group">
+                            <label for="regName">Nombre completo</label>
+                            <input type="text" id="regName" placeholder="Tu nombre" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="regEmail">Correo electrónico</label>
+                            <input type="email" id="regEmail" placeholder="tu@correo.com" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="regPassword">Contraseña</label>
+                            <input type="password" id="regPassword" placeholder="Mínimo 8 caracteres" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="regPhone">Teléfono</label>
+                            <input type="tel" id="regPhone" placeholder="+57 300 123 4567">
+                        </div>
+                        
+                        <button type="submit" class="btn-login">Crear Cuenta</button>
+                    </form>
+                    
+                    <div class="divider">O</div>
+                    
+                    <button class="btn-tab-switch" id="switchToLogin">Volver al inicio de sesión</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="cart.js"></script>
+    <script>
+        // Si no está autenticado, redirigir a inicio después de 2 segundos
+        setTimeout(function() {
+            if (!window.isAuthenticated) {
+                // Vaciar el carrito de usuarios no autenticados
+                cart = [];
+                localStorage.removeItem('pvcCart');
+                document.querySelector('.carrito-badge').textContent = '0';
+            }
+        }, 1000);
+    </script>
+</body>
+</html>

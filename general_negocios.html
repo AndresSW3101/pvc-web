@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Soluciones para Negocios en PVC - DIMAFEL</title>
+    <link rel="icon" href="Icons/PVG_Logo.png?v=2" type="image/png">
+    <style>
+        /* Advanced Category Page Styles */
+        * {
+            font-family: 'Segoe UI', 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        .category-hero {
+            background: linear-gradient(135deg, #0066CC 0%, #004a99 40%, #FF6600 100%);
+            background-attachment: fixed;
+            padding: 6rem 2rem;
+            text-align: center;
+            color: white;
+            margin-bottom: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255,255,255,0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        .category-hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 0.8rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.2);
+            line-height: 1.1;
+        }
+        
+        .category-hero p {
+            font-size: 1.25rem;
+            opacity: 0.98;
+            position: relative;
+            z-index: 1;
+            font-weight: 300;
+            letter-spacing: 0.3px;
+            text-shadow: 0 1px 10px rgba(0,0,0,0.1);
+        }
+        
+        .category-description {
+            max-width: 900px;
+            margin: 0 auto 4rem;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            color: #2c3e50;
+            background: linear-gradient(135deg, rgba(0,102,204,0.05) 0%, rgba(255,102,0,0.05) 100%);
+            border-radius: 12px;
+            border-left: 4px solid #0066CC;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0,102,204,0.08);
+            font-size: 1.09rem;
+            line-height: 1.8;
+            font-weight: 400;
+        }
+        
+        @media (max-width: 768px) {
+            .category-hero {
+                padding: 4rem 1.5rem;
+            }
+
+            .category-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .category-hero p {
+                font-size: 0.95rem;
+            }
+
+            .category-description {
+                padding: 1.5rem 1rem;
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- TOP HEADER -->
+    <div class="top-header">
+        <div class="header-info">
+            <span><i class="fas fa-phone"></i> SERVICIO AL CLIENTE +57 3242104067</span>
+            <span><i class="fas fa-store"></i> TIENDA VIRTUAL Y PRODUCTOS A MEDIDA</span>
+            <span><i class="fas fa-question-circle"></i> acabadosdimafel@gmail.com</span>
+            <span><i class="fas fa-map-marked-alt"></i> A NIVEL NACIONAL (COLOMBIA)</span>
+        </div>
+
+    </div>
+
+    <!-- MAIN HEADER -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <img src="Icons/PVG_Logo.png?v=2" alt="PVG" class="logo-img">
+                <span>DIMAFEL</span>
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="¿Qué estás buscando?">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            <nav class="header-nav">
+                <a href="index.html" class="nav-item">
+                    <i class="fas fa-home"></i>
+                    <span>Inicio</span>
+                </a>
+                <a href="SobreNosotros.html" class="nav-item">
+                    <i class="fas fa-info-circle"></i>
+                    <span>Sobre Nosotros</span>
+                </a>
+                <a href="#" class="nav-item" id="miCuentaBtn">
+                    <i class="fas fa-user"></i>
+                    <span>Mi Cuenta</span>
+                </a>
+                <a href="cart.html" class="nav-item carrito-item">
+                    <span class="carrito-badge">0</span>
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>Carrito</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- CATEGORY HERO SECTION -->
+    <section class="category-hero">
+        <h1>Soluciones para Negocios en PVC</h1>
+        <p>Cubículos, casilleros y muebles multifuncionales | Diseños profesionales para espacios comerciales</p>
+    </section>
+    <!-- PRODUCTS SECTION -->
+    <main class="main-container">
+        <section class="products-section" id="productos">
+            
+            <!-- GALLERY GRID -->
+            <div class="gallery-grid">
+                <!-- Cubículo para Oficinas PVC -->
+                <div class="gallery-item" onclick="window.location.href='products/product0012.html'">
+                    <img src="ImagesProductos/cubiculo1-1.png" alt="Cubículo para Oficinas PVC - Diseño 1">
+                    <div class="gallery-overlay">
+                        <p>Diseño 1</p>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="window.location.href='products/product0012.html'">
+                    <img src="ImagesProductos/cubiculo1-2.png" alt="Cubículo para Oficinas PVC - Diseño 2">
+                    <div class="gallery-overlay">
+                        <p>Diseño 2</p>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="window.location.href='products/product0012.html'">
+                    <img src="ImagesProductos/cubiculo1-3.png" alt="Cubículo para Oficinas PVC - Diseño 3">
+                    <div class="gallery-overlay">
+                        <p>Diseño 3</p>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="window.location.href='products/product0012.html'">
+                    <img src="ImagesProductos/cubiculo1-4.png" alt="Cubículo para Oficinas PVC - Diseño 4">
+                    <div class="gallery-overlay">
+                        <p>Diseño 4</p>
+                    </div>
+                </div>
+
+                <!-- Casilleros Lockers PVC -->
+                <div class="gallery-item" onclick="window.location.href='products/product0013.html'">
+                    <img src="ImagesProductos/locker1-1.png" alt="Casilleros Lockers PVC - Diseño 1">
+                    <div class="gallery-overlay">
+                        <p>Diseño Locker 1</p>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="window.location.href='products/product0013.html'">
+                    <img src="ImagesProductos/locker1-2.png" alt="Casilleros Lockers PVC - Diseño 2">
+                    <div class="gallery-overlay">
+                        <p>Diseño Locker 2</p>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="window.location.href='products/product0013.html'">
+                    <img src="ImagesProductos/locker1-3.png" alt="Casilleros Lockers PVC - Diseño 3">
+                    <div class="gallery-overlay">
+                        <p>Diseño Locker 3</p>
+                    </div>
+                </div>
+
+                <!-- Mueble Multifuncional para Peluquería/Barbería -->
+                <div class="gallery-item" onclick="window.location.href='products/product0006.html'">
+                    <img src="ImagesProductos/mueble_peluqueria1-1.png" alt="Mueble Multifuncional para Peluquería - Diseño 1">
+                    <div class="gallery-overlay">
+                        <p>Diseño 1</p>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="window.location.href='products/product0006.html'">
+                    <img src="ImagesProductos/mueble_peluqueria1-2.png" alt="Mueble Multifuncional para Peluquería - Diseño 2">
+                    <div class="gallery-overlay">
+                        <p>Diseño 2</p>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="window.location.href='products/product0006.html'">
+                    <img src="ImagesProductos/mueble_peluqueria1-3.png" alt="Mueble Multifuncional para Peluquería - Diseño 3">
+                    <div class="gallery-overlay">
+                        <p>Diseño 3</p>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="window.location.href='products/product0006.html'">
+                    <img src="ImagesProductos/mueble_peluqueria1-4.png" alt="Mueble Multifuncional para Peluquería - Diseño 4">
+                    <div class="gallery-overlay">
+                        <p>Diseño 4</p>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="window.location.href='products/product0006.html'">
+                    <img src="ImagesProductos/mueble_peluqueria1-5.png" alt="Mueble Multifuncional para Peluquería - Diseño 5">
+                    <div class="gallery-overlay">
+                        <p>Diseño 5</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRODUCTS INFO SECTION -->
+            <div style="margin-top: 5rem; padding: 3rem 1rem; background: linear-gradient(135deg, #f5f7fa 0%, #ffffff 50%, #f0f4f8 100%); border-radius: 16px; border-top: 1px solid rgba(0,102,204,0.1); max-width: 100%; box-sizing: border-box; overflow-x: hidden;">
+                <h3 style="margin-bottom: 2rem; color: #0066CC; font-size: 1.8rem; font-weight: 700; text-align: center; letter-spacing: -0.5px;">Nuestras Soluciones para Negocios</h3>
+                
+                <div class="products-info-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; margin-bottom: 3rem;">
+                    <!-- Producto 1 -->
+                    <div style="padding: 2rem; background: white; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,102,204,0.12); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); border-top: 4px solid #0066CC;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 20px 60px rgba(0,102,204,0.2)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 40px rgba(0,102,204,0.12)';">
+                        <h4 style="color: #0066CC; margin-bottom: 0.8rem; font-size: 1.15rem; font-weight: 700; letter-spacing: -0.3px;">Cubículo para Oficinas PVC</h4>
+                        <p style="color: #666; font-size: 0.95rem; margin-bottom: 1.2rem; line-height: 1.6; font-weight: 400;">Cubículos modulares ideales para espacios de oficina. Solución práctica y resistente para ambientes profesionales.</p>
+                        <div style="display: flex; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
+                            <span style="background: #ffffff; color: #333; padding: 0.35rem 0.9rem; border-radius: 24px; font-size: 0.8rem; font-weight: 600; border: 2px solid #ddd;">Blanco</span>
+                            <span style="background: #f5f5f5; color: #333; padding: 0.35rem 0.9rem; border-radius: 24px; font-size: 0.8rem; font-weight: 600; border: 2px solid #999;">Gris Claro</span>
+                            <span style="background: #e0e0e0; color: #333; padding: 0.35rem 0.9rem; border-radius: 24px; font-size: 0.8rem; font-weight: 600; border: 2px solid #666;">Gris Oscuro</span>
+                        </div>
+                        <a href="products/product0012.html" class="btn btn-primary" style="width: 100%; text-align: center; display: block; padding: 0.9rem; background: linear-gradient(135deg, #0066CC, #004a99); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s ease; border: none; cursor: pointer;">Ver Detalles →</a>
+                    </div>
+
+                    <!-- Producto 2 -->
+                    <div style="padding: 2rem; background: white; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,102,204,0.12); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); border-top: 4px solid #FF6600;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 20px 60px rgba(255,102,0,0.2)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 40px rgba(0,102,204,0.12)';">
+                        <h4 style="color: #FF6600; margin-bottom: 0.8rem; font-size: 1.15rem; font-weight: 700; letter-spacing: -0.3px;">Casilleros Lockers PVC</h4>
+                        <p style="color: #666; font-size: 0.95rem; margin-bottom: 1.2rem; line-height: 1.6; font-weight: 400;">Lockers seguros y funcionales para depósito de pertenencias. Perfectos para gimnasios, vestuarios y espacios comerciales.</p>
+                        <div style="display: flex; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
+                            <span style="background: #ffffff; color: #333; padding: 0.35rem 0.9rem; border-radius: 24px; font-size: 0.8rem; font-weight: 600; border: 2px solid #999;">Blanco Premium</span>
+                            <span style="background: #e8e8e8; color: #333; padding: 0.35rem 0.9rem; border-radius: 24px; font-size: 0.8rem; font-weight: 600; border: 2px solid #666;">Gris Claro</span>
+                            <span style="background: #333; color: white; padding: 0.35rem 0.9rem; border-radius: 24px; font-size: 0.8rem; font-weight: 600;">Negro Seguridad</span>
+                        </div>
+                        <a href="products/product0013.html" class="btn btn-primary" style="width: 100%; text-align: center; display: block; padding: 0.9rem; background: linear-gradient(135deg, #FF6600, #ff8533); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s ease; border: none; cursor: pointer;">Ver Detalles →</a>
+                    </div>
+
+                    <!-- Producto 3 -->
+                    <div style="padding: 2rem; background: white; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,102,204,0.12); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); border-top: 4px solid #9C27B0;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 20px 60px rgba(156,39,176,0.2)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 40px rgba(0,102,204,0.12)';">
+                        <h4 style="color: #9C27B0; margin-bottom: 0.8rem; font-size: 1.15rem; font-weight: 700; letter-spacing: -0.3px;">Mueble Multifuncional para Peluquería</h4>
+                        <p style="color: #666; font-size: 0.95rem; margin-bottom: 1.2rem; line-height: 1.6; font-weight: 400;">Mueble versátil y funcional diseñado especialmente para peluquerías y barberías. Material PVC resistente a humedad y químicos.</p>
+                        <div style="display: flex; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
+                            <span style="background: #ffffff; color: #333; padding: 0.35rem 0.9rem; border-radius: 24px; font-size: 0.8rem; font-weight: 600; border: 2px solid #ddd;">Blanco Brillante</span>
+                            <span style="background: #d4a574; color: white; padding: 0.35rem 0.9rem; border-radius: 24px; font-size: 0.8rem; font-weight: 600; border: 2px solid #8b6f47;">Madera Roble</span>
+                            <span style="background: #f5f5f5; color: #333; padding: 0.35rem 0.9rem; border-radius: 24px; font-size: 0.8rem; font-weight: 600; border: 2px solid #999;">Gris Moderno</span>
+                        </div>
+                        <a href="products/product0006.html" class="btn btn-primary" style="width: 100%; text-align: center; display: block; padding: 0.9rem; background: linear-gradient(135deg, #9C27B0, #7B1FA2); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s ease; border: none; cursor: pointer;">Ver Detalles →</a>
+                    </div>
+                </div>
+
+                <div style="text-align: center; padding-top: 2rem; border-top: 2px solid rgba(0,102,204,0.1); display: flex; flex-direction: column; align-items: center;">
+                    <p style="color: #333; margin-bottom: 1.5rem; font-size: 1.05rem; font-weight: 500;">¿Necesitas asesoría profesional para elegir la solución perfecta para tu negocio?</p>
+                    <button class="btn btn-primary" onclick="window.open('https://wa.me/573242104067?text=Hola%20DIMAFEL,%20me%20interesa%20recibir%20asesoría%20sobre%20soluciones%20para%20negocios%20en%20PVC', '_blank')" style="padding: 1rem 2.5rem; background: linear-gradient(135deg, #25D366, #128C7E); color: white; border: none; border-radius: 8px; font-weight: 700; font-size: 1rem; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 8px 20px rgba(37,211,102,0.3); display: flex; align-items: center; justify-content: center; gap: 0.6rem;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 12px 30px rgba(37,211,102,0.4)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 20px rgba(37,211,102,0.3)';">
+                        <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- MODAL FOR IMAGE GALLERY -->
+    <div id="imageModal" class="modal" style="display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.92); backdrop-filter: blur(5px); animation: fadeIn 0.3s ease;">
+        <span class="close-modal" onclick="closeModal()" style="position: absolute; right: 35px; top: 25px; font-size: 42px; font-weight: 300; color: white; cursor: pointer; transition: all 0.2s ease; z-index: 1001;" onmouseover="this.style.transform='scale(1.2)'; this.style.color='#FF6600';" onmouseout="this.style.transform='scale(1)'; this.style.color='white';">&times;</span>
+        <img id="modalImage" style="margin: auto; display: block; width: 85%; height: auto; max-height: 85vh; margin-top: 40px; border-radius: 8px; box-shadow: 0 15px 50px rgba(0,0,0,0.5);" alt="Galería">
+        <style>
+            @keyframes fadeIn {
+                from { opacity: 0; }
+                to { opacity: 1; }
+            }
+        </style>
+    </div>
+
+    <style>
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+            padding: 2rem 0;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            cursor: pointer;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.12);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            background: white;
+            height: 320px;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(0,102,204,0.25);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.08) rotate(0.5deg);
+            filter: brightness(0.85);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.95), rgba(0,0,0,0.6) 40%, transparent);
+            color: white;
+            padding: 2.5rem 1.5rem 1.5rem;
+            text-align: center;
+            transform: translateY(30px);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .gallery-overlay p {
+            margin: 0;
+            font-weight: 700;
+            font-size: 1.05rem;
+            letter-spacing: 0.5px;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+                gap: 1.2rem;
+                padding: 1rem 0;
+            }
+
+            .gallery-item {
+                height: 220px;
+            }
+
+            .gallery-overlay {
+                padding: 1.5rem 1rem 1rem;
+            }
+
+            .gallery-overlay p {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+
+    <script>
+        function openModal(imageSrc) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            modal.style.display = 'block';
+            modalImg.src = imageSrc;
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+            modal.style.display = 'none';
+        }
+
+        // Close modal when clicking outside the image
+        window.onclick = function(event) {
+            const modal = document.getElementById('imageModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        // Keyboard navigation for modal
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>Sobre Nosotros</h4>
+                <p>DIMAFEL es tu tienda online de confianza para materiales de construcción (Manejamos principalmente PVC y Aglomerado) y mejora del hogar.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Redes Sociales</h4>
+                <ul>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">X</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contacto</h4>
+                <p>Email: acabadosdimafel@gmail.com</p>
+                <p>Teléfono: +57 3242104067</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 DIMAFEL. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- WHATSAPP BUTTON -->
+    <div class="whatsapp-button" id="whatsappBtn">
+        <i class="fab fa-whatsapp"></i>
+        <span class="whatsapp-tooltip">¡Chatea con nosotros!</span>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="cart.js"></script>
+</body>
+</html>

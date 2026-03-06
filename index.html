@@ -1,0 +1,1551 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css?v=2.1">
+    <link rel="stylesheet" href="laminas.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>DIMAFEL || Los mejores productos para tu hogar</title>
+    <link rel="icon" href="Icons/PVG_Logo.png?v=2" type="image/png">
+    <style>
+        
+        /* CUSTOM DESIGN SECTION */
+        .custom-design-section {
+            width: 100%;
+            background: linear-gradient(135deg, #0066CC 0%, #004DA3 50%, #FF6600 100%);
+            padding: 2.5rem 1rem;
+            margin: 3rem 0;
+        }
+        .custom-design-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 2.5rem;
+            align-items: center;
+        }
+        .design-header {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            align-items: flex-start;
+        }
+        .design-logo-wrapper {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #FF6347 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(255, 165, 0, 0.4);
+            overflow: hidden;
+            padding: 5px;
+        }
+        .design-logo {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        .design-text {
+            color: white;
+        }
+        .design-title {
+            margin: 0 0 0.3rem 0;
+            font-size: 1.8rem;
+            font-weight: 900;
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.15;
+            letter-spacing: -0.5px;
+        }
+        .design-subtitle {
+            margin: 0;
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 500;
+            line-height: 1.4;
+        }
+        .design-content {
+            background: linear-gradient(180deg, #ffffff 0%, #f8faff 100%);
+            padding: 2rem;
+            border-radius: 14px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+            display: flex;
+            flex-direction: column;
+            gap: 1.8rem;
+        }
+        .design-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1.2rem;
+        }
+        .design-feature {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            padding: 1rem;
+            background: linear-gradient(135deg, #E8F4FF 0%, #FFF9F5 100%);
+            border-radius: 10px;
+            border: 1.5px solid rgba(0, 102, 204, 0.15);
+            transition: all 0.3s ease;
+            text-align: center;
+            align-items: center;
+        }
+        .design-feature:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 102, 204, 0.15);
+            border-color: rgba(0, 102, 204, 0.3);
+            background: linear-gradient(135deg, #E0F1FF 0%, #FFF5F0 100%);
+        }
+        .design-feature-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, #0066CC 0%, #004DA3 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: white;
+            box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
+        }
+        .design-feature-text {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+        .design-feature-text strong {
+            font-size: 0.85rem;
+            color: #0066CC;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+        .design-feature-text span {
+            font-size: 0.75rem;
+            color: #666;
+            font-weight: 400;
+            line-height: 1.3;
+        }
+        .design-btn-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            align-items: stretch;
+        }
+        .design-description {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.5;
+            margin-bottom: 0.3rem;
+        }
+        .design-btn-main {
+            width: 100%;
+            background: linear-gradient(135deg, #25D366 0%, #1DA853 50%, #0E8C36 100%);
+            color: white;
+            border: none;
+            padding: 0.85rem 1.5rem;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            box-shadow: 0 8px 22px rgba(37, 211, 102, 0.35);
+            transition: all 0.3s ease;
+        }
+        .design-btn-main:hover {
+            background: linear-gradient(135deg, #1DA853 0%, #0E8C36 50%, #006B2F 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 28px rgba(37, 211, 102, 0.45);
+        }
+        .design-btn-main:active {
+            transform: translateY(0);
+        }
+        .design-btn-main i {
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 1024px) {
+            .custom-design-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .design-header {
+                align-items: center;
+                text-align: center;
+            }
+            .design-title {
+                font-size: 1.5rem;
+            }
+            .design-features {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        @media (max-width: 768px) {
+            .custom-design-section {
+                padding: 1.8rem 0.8rem;
+                margin: 2rem 0;
+            }
+            .custom-design-container {
+                gap: 1.5rem;
+            }
+            .design-content {
+                padding: 1.5rem;
+                gap: 1.5rem;
+            }
+            .design-header {
+                gap: 0.8rem;
+            }
+            .design-title {
+                font-size: 1.2rem;
+            }
+            .design-subtitle {
+                font-size: 0.85rem;
+            }
+            .design-features {
+                grid-template-columns: 1fr;
+                gap: 0.8rem;
+            }
+            .design-feature {
+                padding: 0.8rem;
+                gap: 0.6rem;
+            }
+            .design-btn-main {
+                padding: 0.8rem 1.2rem;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- TOP HEADER -->
+    <div class="top-header">
+        <div class="header-info">
+            <span><i class="fas fa-phone"></i> SERVICIO AL CLIENTE +57 3242104067</span>
+            <span><i class="fas fa-store"></i> TIENDA VIRTUAL Y PRODUCTOS A MEDIDA</span>
+            <span><i class="fas fa-question-circle"></i> acabadosdimafel@gmail.com</span>
+            <span><i class="fas fa-map-marked-alt"></i> A NIVEL NACIONAL (COLOMBIA)</span>
+        </div>
+
+    </div>
+
+    <!-- MAIN HEADER -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <img src="Icons/PVG_Logo.png?v=2" alt="PVG" class="logo-img">
+                <span>DIMAFEL</span>
+            </div>
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="¿Qué estás buscando?">
+                <button id="searchBtn"><i class="fas fa-search"></i></button>
+                <div id="searchSuggestions" class="search-suggestions"></div>
+            </div>
+            <nav class="header-nav">
+                <a href="index.html" class="nav-item active">
+                    <i class="fas fa-home"></i>
+                    <span>Inicio</span>
+                </a>
+                <a href="SobreNosotros.html" class="nav-item">
+                    <i class="fas fa-info-circle"></i>
+                    <span>Sobre Nosotros</span>
+                </a>
+                <a href="#" class="nav-item" id="miCuentaBtn">
+                    <i class="fas fa-user"></i>
+                    <span>Mi Cuenta</span>
+                </a>
+                <a href="cart.html" class="nav-item carrito-item">
+                    <span class="carrito-badge">0</span>
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>Carrito</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- CARACTERÍSTICAS PVC -->
+    <section class="features-section">
+        <div class="features-container">
+            <h2 class="features-title">Beneficios del PVC</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-spray-can"></i>
+                    </div>
+                    <p>Fácil limpieza</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-recycle"></i>
+                    </div>
+                    <p>Reutilizable y reciclable</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-droplet"></i>
+                    </div>
+                    <p>Resistente al agua</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <p>Auto extinguible</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-brush"></i>
+                    </div>
+                    <p>Color personalizado</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-volume-off"></i>
+                    </div>
+                    <p>Aislante acústico</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <p>Resistente a impactos</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-hourglass-end"></i>
+                    </div>
+                    <p>Larga duración</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-sun"></i>
+                    </div>
+                    <p>Resistente a rayos UV</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-ruler-combined"></i>
+                    </div>
+                    <p>Medidas especiales</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CARRUSEL/SLIDER -->
+    <section class="carousel-section">
+        <div class="carousel-container">
+            <div class="carousel-slide active">
+                <div class="slide-content pvc-slide" style="background-image: url('Icons/island-pvc-white-modern-5.jpg'); background-size: cover; background-position: center;">
+                    <div class="slide-text">
+                        <h2>Cocinas Integrales</h2>
+                        <p class="big-discount">Hasta 40% OFF</p>
+                        <p>En todos nuestros modelos de PVC</p>
+                    </div>
+                    <div class="pvc-texture texture-1"></div>
+                </div>
+            </div>
+            <div class="carousel-slide">
+                <div class="slide-content pvc-slide" style="background-image: url('Icons/peatonales-pvc.jpg'); background-size: cover; background-position: center;">
+                    <div class="slide-text">
+                        <h2>Puertas y Ventanas</h2>
+                        <p class="big-discount">RESISTENTES</p>
+                        <p>PVC de alta calidad para tu hogar</p>
+                    </div>
+                    <div class="pvc-texture texture-2"></div>
+                </div>
+            </div>
+            <div class="carousel-slide">
+                <div class="slide-content pvc-slide" style="background-image: url('Icons/PVCMuestras.png'); background-size: cover; background-position: center;">
+                    <div class="slide-text">
+                        <h2>Láminas PVC</h2>
+                        <p class="big-discount">+50 DISEÑOS</p>
+                        <p>Para cualquier estilo de decoración</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-btn prev"><i class="fas fa-chevron-left"></i></button>
+            <button class="carousel-btn next"><i class="fas fa-chevron-right"></i></button>
+            <div class="carousel-dots">
+                <span class="dot active" data-slide="0"></span>
+                <span class="dot" data-slide="1"></span>
+                <span class="dot" data-slide="2"></span>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- WIDGET DISEÑOS PERSONALIZADOS FLOTANTE -->
+    <section class="custom-design-section">
+        <div class="custom-design-container">
+            <div class="design-header">
+                <div class="design-logo-wrapper">
+                    <img src="Icons/PVG_Logo.png?v=2" alt="DIMAFEL Logo" class="design-logo">
+                </div>
+                <div class="design-text">
+                    <h2 class="design-title">Diseñamos tu Espacio</h2>
+                    <p class="design-subtitle">En DIMAFEL creamos espacios personalizados que se adaptan perfectamente a tus necesidades y gustos</p>
+                </div>
+            </div>
+
+            <div class="design-content">
+                <div class="design-features">
+                    <div class="design-feature">
+                        <div class="design-feature-icon"><i class="fas fa-cube"></i></div>
+                        <div class="design-feature-text">
+                            <strong>Medidas Exactas</strong>
+                            <span>Ajustadas a tu espacio con materiales de alta durabilidad</span>
+                        </div>
+                    </div>
+                    <div class="design-feature">
+                        <div class="design-feature-icon"><i class="fas fa-lightbulb"></i></div>
+                        <div class="design-feature-text">
+                            <strong>Diseño Personalizado</strong>
+                            <span>Nuestros diseños se adaptan a tu visión</span>
+                        </div>
+                    </div>
+                    <div class="design-feature">
+                        <div class="design-feature-icon"><i class="fas fa-handshake"></i></div>
+                        <div class="design-feature-text">
+                            <strong>Asesoría Experta</strong>
+                            <span>Equipo profesional para guiarte en cada paso</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="design-btn-wrapper">
+                    <p class="design-description">¿Tienes un proyecto en mente? Consulta con nuestro equipo sin compromiso</p>
+                    <button class="design-btn-main" onclick="window.open('https://wa.me/573242104067?text=Hola%20DIMAFEL,%20me%20interesa%20consultar%20sobre%20diseños%20personalizados%20en%20PVC', '_blank')">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>Consultar Diseño por WhatsApp</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <main class="main-container" style="display: flex; gap: 1.5rem; padding: 2rem 1rem 2rem 0.5rem; max-width: 100%; margin: 0;">
+        <!-- SIDEBAR CATEGORÍAS -->
+        <aside class="categories-sidebar">
+            <div style="background: linear-gradient(180deg, #ffffff 0%, #f8faff 100%); border-radius: 14px; box-shadow: 0 8px 24px rgba(0,102,204,0.12); padding: 0; overflow: hidden;">
+                <div style="background: linear-gradient(135deg, #0066CC 0%, #004a99 100%); padding: 1.8rem 1.5rem; color: white; text-align: center;">
+                    <h3 style="margin: 0; font-size: 1.2rem; font-weight: 800; letter-spacing: -0.3px; text-transform: uppercase;">Categorías</h3>
+                    <p style="margin: 0.4rem 0 0 0; font-size: 0.8rem; opacity: 0.9;">Explora nuestros productos</p>
+                </div>
+                <nav style="padding: 0.5rem;">
+                    <a href="general_cocina.html" class="category-link" style="display: flex; align-items: center; padding: 1rem 1.2rem; margin: 0.3rem 0; border-radius: 8px; color: #333; text-decoration: none; transition: all 0.3s ease; font-weight: 500; font-size: 0.95rem;">
+                        <i class="fas fa-utensils" style="color: #0066CC; margin-right: 0.7rem; width: 18px; font-size: 0.95rem;"></i>
+                        <span>COCINA</span>
+                    </a>
+                    <a href="general_puertas.html" class="category-link" style="display: flex; align-items: center; padding: 1rem 1.2rem; margin: 0.3rem 0; border-radius: 8px; color: #333; text-decoration: none; transition: all 0.3s ease; font-weight: 500; font-size: 0.95rem;">
+                        <i class="fas fa-door-open" style="color: #FF6600; margin-right: 0.7rem; width: 18px; font-size: 0.95rem;"></i>
+                        <span>PUERTAS</span>
+                    </a>
+                    <a href="general_closets.html" class="category-link" style="display: flex; align-items: center; padding: 1rem 1.2rem; margin: 0.3rem 0; border-radius: 8px; color: #333; text-decoration: none; transition: all 0.3s ease; font-weight: 500; font-size: 0.95rem;">
+                        <i class="fas fa-socks" style="color: #4CAF50; margin-right: 0.7rem; width: 18px; font-size: 0.95rem;"></i>
+                        <span>CLOSETS</span>
+                    </a>
+                    <a href="general_negocios.html" class="category-link" style="display: flex; align-items: center; padding: 1rem 1.2rem; margin: 0.3rem 0; border-radius: 8px; color: #333; text-decoration: none; transition: all 0.3s ease; font-weight: 500; font-size: 0.95rem;">
+                        <i class="fas fa-briefcase" style="color: #9C27B0; margin-right: 0.7rem; width: 18px; font-size: 0.95rem;"></i>
+                        <span>PARA NEGOCIOS</span>
+                    </a>
+                    <a href="general_bano.html" class="category-link" style="display: flex; align-items: center; padding: 1rem 1.2rem; margin: 0.3rem 0; border-radius: 8px; color: #333; text-decoration: none; transition: all 0.3s ease; font-weight: 500; font-size: 0.95rem;">
+                        <i class="fas fa-bath" style="color: #00BCD4; margin-right: 0.7rem; width: 18px; font-size: 0.95rem;"></i>
+                        <span>BAÑO</span>
+                    </a>
+                    <a href="general_decoracion.html" class="category-link" style="display: flex; align-items: center; padding: 1rem 1.2rem; margin: 0.3rem 0; border-radius: 8px; color: #333; text-decoration: none; transition: all 0.3s ease; font-weight: 500; font-size: 0.95rem;">
+                        <i class="fas fa-palette" style="color: #FF5722; margin-right: 0.7rem; width: 18px; font-size: 0.95rem;"></i>
+                        <span>DECORACIÓN</span>
+                    </a>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- PRODUCTOS SECTION -->
+        <section class="products-section" id="productos" style="flex: 1; min-width: 0;">
+            <h2 class="section-title">Productos Destacados en PVC</h2>
+            <div class="products-grid">
+                <!-- Producto 1: Cocina Integral PVC Premium -->
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="ImagesProductos/cocina1-1.png" alt="Cocina Integral PVC Premium" class="product-img">
+                        <span class="al-por-mayor-badge">OFERTA</span>
+                        <span class="discount">-40%</span>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">
+                            <a href="products/product0001.html">Cocina Integral PVC Premium</a>
+                        </h3>
+                        <p class="product-description">Cocina modular completa con acabados en PVC de alta resistencia.</p>
+                        <div class="color-selector">
+                            <label>Selecciona acabado:</label>
+                            <div class="color-options">
+                                <div class="color-swatch material-selector image-selector" style="background-color:#1f089e;" title="Azul profundo" data-color="Azul profundo" data-image="ImagesProductos/cocina1-1.png"></div>
+                                <div class="color-swatch material-selector image-selector" style="background-color:#320e0e;" title="Marrón oscuro" data-color="Marrón oscuro" data-image="ImagesProductos/cocina1-2.png"></div>
+                                <div class="color-swatch material-selector image-selector" style="background-color:#ffffff;" title="Blanco" data-color="Blanco" data-image="ImagesProductos/cocina1-3.png"></div>
+                                <div class="color-swatch material-selector image-selector" style="background-color:#ffffff;" title="Blanco/Madera roble claro" data-color="Blanco/Madera roble claro" data-image="ImagesProductos/cocina1-4.png"></div>
+                                <div class="color-swatch material-selector image-selector" style="background-color:#89bb6ecf;" title="Verde menta" data-color="Verde menta" data-image="ImagesProductos/cocina1-5.png"></div>
+                            </div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="window.location.href='products/product0001.html'">Ver Detalles</button>
+                            <button class="btn btn-secondary" title="Agregar a favoritos"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Producto 2: Puerta Premium PVC -->
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="ImagesProductos/puerta1-1.png" alt="Puerta Premium PVC" class="product-img">
+                        <span class="al-por-mayor-badge">NUEVO</span>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">
+                            <a href="products/product0002.html">Puerta Premium PVC</a>
+                        </h3>
+                        <p class="product-description">Puerta de PVC resistente con acabados premium y vidrio templado.</p>
+                        <div class="color-selector">
+                            <label>Selecciona acabado:</label>
+                            <div class="color-options">
+                                <div class="color-swatch material-selector image-selector" style="background-color:#848383;" title="Gris medio" data-color="Gris medio" data-image="ImagesProductos/puerta1-1.png"></div>
+                                <div class="color-swatch material-selector image-selector" style="background-color:#a85a21;" title="Caoba" data-color="Caoba" data-image="ImagesProductos/puerta1-2.png"></div>
+                                <div class="color-swatch material-selector image-selector" style="background-color:#2f2d2d;" title="Negro" data-color="Negro" data-image="ImagesProductos/puerta1-3.png"></div>
+                                <div class="color-swatch material-selector image-selector" style="background-color:#ffffff;" title="Blanco" data-color="Blanco" data-image="ImagesProductos/puerta1-4.png"></div>
+                            </div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="window.location.href='products/product0002.html'">Ver Detalles</button>
+                            <button class="btn btn-secondary" title="Agregar a favoritos"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Producto 3: Cocina Integral Modular PVC -->
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="ImagesProductos/cocina2-1.png" alt="Cocina Integral Modular PVC" class="product-img">
+                        <span class="al-por-mayor-badge">BESTSELLER</span>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">
+                            <a href="products/product0003.html">Cocina Integral Modular PVC</a>
+                        </h3>
+                        <p class="product-description">Cocina modular completa con acabados en PVC de alta resistencia y diseño personalizable.</p>
+                        <div class="color-selector">
+                            <label>Selecciona acabado:</label>
+                            <div class="color-options">
+                                <div class="color-swatch material-selector image-selector" style="background-color:#361414; border: 1px solid #ddd;" title="Marrón oscuro" data-color="Marrón oscuro" data-image="ImagesProductos/cocina2-1.png"></div>
+                                <div class="color-swatch material-selector image-selector" style="background-color:#e8c3a9;" title="Roble claro" data-color="Roble claro" data-image="ImagesProductos/cocina2-2.png"></div>
+                                <div class="color-swatch material-selector image-selector" style="background-color:#000000;" title="Negro" data-color="Negro" data-image="ImagesProductos/cocina2-3.png"></div>
+                                <div class="color-swatch material-selector image-selector" style="background-color:#211a72;" title="Azul marino" data-color="Azul marino" data-image="ImagesProductos/cocina2-4.png"></div>
+                            </div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="window.location.href='products/product0003.html'">Ver Detalles</button>
+                            <button class="btn btn-secondary" title="Agregar a favoritos"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Producto 4: Closet Modular PVC -->
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="ImagesProductos/closet1-1.png" alt="Closet Modular PVC" class="product-img">
+                        <span class="discount">-25%</span>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">
+                            <a href="products/product0004.html">Closet Modular PVC</a>
+                        </h3>
+                        <p class="product-description">Armario personalizable con espejos y accesorios incluidos.</p>
+                        <div class="color-selector">
+                            <label>Selecciona acabado:</label>
+                            <div class="color-options">
+                                <div class="color-swatch material-selector image-selector" style="background-color:#614444; border: 1px solid #ddd;" title="Marrón" data-color="Marrón" data-image="ImagesProductos/closet1-1.png"></div>
+                                <div class="color-swatch material-selector image-selector" style="background-color:#5a5a5a;" title="Gris medio" data-color="Gris medio" data-image="ImagesProductos/closet1-2.png"></div>
+                                <div class="color-swatch material-selector image-selector" style="background-color:#2f1111;" title="Marrón vino" data-color="Marrón vino" data-image="ImagesProductos/closet1-3.png"></div>
+                                <div class="color-swatch material-selector image-selector" style="background-color:#000000;" title="Negro" data-color="Negro" data-image="ImagesProductos/closet1-4.png"></div>
+                                <div class="color-swatch material-selector image-selector" style="background-color:#190761;" title="Azul noche" data-color="Azul noche" data-image="ImagesProductos/closet1-5.png"></div>
+                                <div class="color-swatch material-selector image-selector" style="background-color:#ffffff;" title="Blanco" data-color="Blanco" data-image="ImagesProductos/closet1-6.png"></div>
+                                <div class="color-swatch material-selector image-selector" style="background-color:#e8d1e4;" title="Rosa perla" data-color="Rosa perla" data-image="ImagesProductos/closet1-7.png"></div>
+                            </div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="window.location.href='products/product0004.html'">Ver Detalles</button>
+                            <button class="btn btn-secondary" title="Agregar a favoritos"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Producto 5: Cocina Premium Ejecutiva PVC -->
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="ImagesProductos/cocina3-1.png" alt="Cocina Premium Ejecutiva PVC" class="product-img">
+                        <span class="al-por-mayor-badge">PREMIUM</span>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">
+                            <a href="products/product0005.html">Cocina Premium Ejecutiva PVC</a>
+                        </h3>
+                        <p class="product-description">Cocina ejecutiva premium con acabados en PVC de máxima calidad y diseño elegante.</p>
+                        <div class="color-selector">
+                            <label>Selecciona acabado:</label>
+                            <div class="color-options">
+                                <div class="color-swatch material-selector image-selector" style="background-color:#ffffff;" title="Blanco" data-color="Blanco" data-image="ImagesProductos/cocina3-1.png"></div>
+                                <div class="color-swatch material-selector image-selector" style="background-color:#070707;" title="Negro/Marmolizado" data-color="Negro/Marmolizado" data-image="ImagesProductos/cocina3-2.png"></div>
+                                <div class="color-swatch material-selector image-selector" style="background-color:#281f17;" title="Wengue" data-color="Wengue" data-image="ImagesProductos/cocina3-3.png"></div>
+                                <div class="color-swatch material-selector image-selector" style="background-color:#892706;" title="Caoba" data-color="Caoba" data-image="ImagesProductos/cocina3-4.png"></div>
+                                <div class="color-swatch material-selector image-selector" style="background-color:#584a31;" title="Nogal" data-color="Nogal" data-image="ImagesProductos/cocina3-5.png"></div>
+                            </div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="window.location.href='products/product0005.html'">Ver Detalles</button>
+                            <button class="btn btn-secondary" title="Agregar a favoritos"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Producto 6: Mueble Peluquería/Barbería PVC -->
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="ImagesProductos/mueble_peluqueria1-1.png" alt="Mueble Multifuncional para Peluquería/Barbería en PVC" class="product-img">
+                        <span class="al-por-mayor-badge">NUEVO</span>
+                        <span class="discount">-20%</span>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">
+                            <a href="products/product0006.html">Mueble Peluquería/Barbería PVC</a>
+                        </h3>
+                        <p class="product-description">Mueble multifuncional completo diseñado específicamente para salones de peluquería y barberías en PVC resistente.</p>
+                        <div class="color-selector">
+                            <label>Selecciona Acabado:</label>
+                            <div class="color-options">
+                                <div class="color-swatch material-selector image-selector" style="background-color:#6B5437;" title="Vista Principal" data-color="Vista Principal" data-image="ImagesProductos/mueble_peluqueria1-1.png"></div>
+                                <div class="color-swatch material-selector image-selector" style="background-color:#f6a5e9;" title="Detalle" data-color="Detalle" data-image="ImagesProductos/mueble_peluqueria1-2.png"></div>
+                                <div class="color-swatch material-selector image-selector" style="background-color:#212a50;" title="Acabado" data-color="Acabado" data-image="ImagesProductos/mueble_peluqueria1-3.png"></div>
+                                <div class="color-swatch material-selector image-selector" style="background-color:#8B6F47;" title="Instalado" data-color="Instalado" data-image="ImagesProductos/mueble_peluqueria1-4.png"></div>
+                                <div class="color-swatch material-selector image-selector" style="background-color:#000000;" title="Detalles" data-color="Detalles" data-image="ImagesProductos/mueble_peluqueria1-5.png"></div>
+                            </div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="window.location.href='products/product0006.html'">Ver Detalles</button>
+                            <button class="btn btn-secondary" title="Agregar a favoritos"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </article>
+
+                
+                <!-- Producto 7: Panel Listonado Decorativo en PVC para Pared -->
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="ImagesProductos/TV_Black1.png" alt="Panel Listonado Decorativo en PVC para Pared" class="product-img">
+                        <span class="al-por-mayor-badge">NUEVO</span>
+                        <span class="discount">-15%</span>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">
+                            <a href="products/product0007.html">Panel Listonado Decorativo en PVC para Pared</a>
+                        </h3>
+                        <p class="product-description">Panel decorativo listonado en PVC de alta calidad, ideal para revestimiento de paredes con acabados modernos.</p>
+                        <div class="color-selector">
+                            <label>Selecciona Acabado:</label>
+                            <div class="color-options">
+                                <div class="color-swatch material-selector image-selector" style="background-color:#000000;" title="Brown" data-color="Brown" data-image="ImagesProductos/TV_Black1.png"></div>
+                                <div class="color-swatch material-selector image-selector" style="background-color:#7c5b34;" title="White" data-color="White" data-image="ImagesProductos/TV_Brown1.jpg"></div>
+                                <div class="color-swatch material-selector image-selector" style="background-color:#ffffff;" title="Black" data-color="Black" data-image="ImagesProductos/TV_White1.png"></div>
+                            </div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="window.location.href='products/product0007.html'">Ver Detalles</button>
+                            <button class="btn btn-secondary" title="Agregar a favoritos"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </article>
+
+                                <!-- Producto 8: Puerta Básica PVC -->
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="ImagesProductos/puerta2-1.png" alt="Puerta Básica PVC" class="product-img">
+                        <span class="al-por-mayor-badge">NUEVO</span>
+                        <span class="discount">-20%</span>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">
+                            <a href="products/product0008.html">Puerta Básica PVC</a>
+                        </h3>
+                        <p class="product-description">Puerta PVC resistente y funcional con 3 diferentes diseños. Excelente relación precio-calidad para cualquier hogar.</p>
+                        <div class="color-selector">
+                            <label>Selecciona Diseño:</label>
+                            <div class="color-options">
+                                <div class="color-swatch material-selector image-selector" style="background-color:#ffffff;" title="Diseño 1" data-color="Diseño 1" data-image="ImagesProductos/puerta2-1.png"></div>
+                                <div class="color-swatch material-selector image-selector" style="background-color:#ffffff;" title="Diseño 2" data-color="Diseño 2" data-image="ImagesProductos/puerta2-2.png"></div>
+                                <div class="color-swatch material-selector image-selector" style="background-color:#ffffff;" title="Diseño 3" data-color="Diseño 3" data-image="ImagesProductos/puerta2-3.png"></div>
+                            </div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="window.location.href='products/product0008.html'">Ver Detalles</button>
+                            <button class="btn btn-secondary" title="Agregar a favoritos"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </article>
+
+                                                <!-- Producto 9: Mueble Lavabo PVC para Baño -->
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="ImagesProductos/Baño1-1.png" alt="Mueble Lavabo PVC para Baño" class="product-img">
+                        <span class="al-por-mayor-badge">NUEVO</span>
+                        <span class="discount">-15%</span>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">
+                            <a href="products/product0009.html">Mueble Lavabo PVC para Baño</a>
+                        </h3>
+                        <p class="product-description">Mueble lavabo en PVC de alta calidad, perfecto para baños modernos. Resistente a la humedad y muy fácil de limpiar.</p>
+                        <div class="color-selector">
+                            <label>Selecciona Vista:</label>
+                            <div class="color-options">
+                                <div class="color-swatch material-selector image-selector" style="background-color:#d8aa66;" title="Vista 1" data-color="Vista 1" data-image="ImagesProductos/Baño1-1.png"></div>
+                                <div class="color-swatch material-selector image-selector" style="background-color:#3d220a;" title="Vista 2" data-color="Vista 2" data-image="ImagesProductos/Baño1-2.png"></div>
+                                <div class="color-swatch material-selector image-selector" style="background-color:#12034b;" title="Vista 3" data-color="Vista 3" data-image="ImagesProductos/Baño1-3.png"></div>
+                                <div class="color-swatch material-selector image-selector" style="background-color:#dabc8f;" title="Vista 4" data-color="Vista 4" data-image="ImagesProductos/Baño1-4.png"></div>
+                                <div class="color-swatch material-selector image-selector" style="background-color:#ffffff;" title="Vista 5" data-color="Vista 5" data-image="ImagesProductos/Baño1-5.png"></div>
+                            </div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="window.location.href='products/product0009.html'">Ver Detalles</button>
+                            <button class="btn btn-secondary" title="Agregar a favoritos"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </article>
+
+
+                                                                <!-- Producto 10: PUERTA HOSPITALES -->
+
+                    <article class="product-card">
+                    <div class="product-image">
+                        <img src="ImagesProductos/puerta3-1.png" alt="Puertas PVC Especiales para Hospitales" class="product-img">
+                        <span class="al-por-mayor-badge">USO INSTITUCIONAL</span>
+                        <span class="discount">-30%</span>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">
+                            <a href="products/product0010.html">Puertas PVC Especiales para Hospitales</a>
+                        </h3>
+                        <p class="product-description">Puertas PVC de alta resistencia diseñadas específicamente para áreas críticas hospitalarias. Higiénicas y fáciles de esterilizar.</p>
+                        <div class="color-selector">
+                            <label>Selecciona vista:</label>
+                            <div class="color-options">
+                                <div class="color-swatch material-selector image-selector" style="background-color:#ffffff;" title="Vista 1" data-color="Vista 1" data-image="ImagesProductos/puerta3-1.png"></div>
+                                <div class="color-swatch material-selector image-selector" style="background-color:#76c9e2;" title="Vista 2" data-color="Vista 2" data-image="ImagesProductos/puerta3-2.png"></div>
+                                <div class="color-swatch material-selector image-selector" style="background-color:#e7db5e;" title="Vista 3" data-color="Vista 3" data-image="ImagesProductos/puerta3-3.png"></div>
+                                <div class="color-swatch material-selector image-selector" style="background-color:#ffffff;" title="Vista 4" data-color="Vista 4" data-image="ImagesProductos/puerta3-4.png"></div>
+                            </div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="window.location.href='products/product0010.html'">Ver Detalles</button>
+                            <button class="btn btn-secondary" title="Agregar a favoritos"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </article>
+
+               <!-- Producto 11: CLOSET PREMIUM PVC -->
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="ImagesProductos/closet2-3.png" alt="Closet Premium PVC" class="product-img">
+                        <span class="al-por-mayor-badge">NUEVO</span>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">
+                            <a href="products/product0011.html">Closet Premium PVC</a>
+                        </h3>
+                        <p class="product-description">Closet modular en PVC de alta calidad con diseño elegante y organización funcional.</p>
+                        <div class="color-selector">
+                            <label>Selecciona vista:</label>
+                            <div class="color-options">
+                                <div class="color-swatch material-selector image-selector" style="background-color:#9a7445;" title="Vista 3" data-color="Vista 3" data-image="ImagesProductos/closet2-3.png"></div>
+                                <div class="color-swatch material-selector image-selector" style="background-color:#381f0e;" title="Vista 2" data-color="Vista 2" data-image="ImagesProductos/closet2-2.png"></div>
+                                <div class="color-swatch material-selector image-selector" style="background-color:#ffffff;" title="Vista 1" data-color="Vista 1" data-image="ImagesProductos/closet2-1.png"></div>
+                                
+                            </div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="window.location.href='products/product0011.html'">Ver Detalles</button>
+                            <button class="btn btn-secondary" title="Agregar a favoritos"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Producto 12: CUBICULО -->
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="ImagesProductos/cubiculo1-1.png" alt="Cubículo para Oficinas PVC" class="product-img">
+                        <span class="al-por-mayor-badge">NUEVO</span>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">
+                            <a href="products/product0012.html">Cubículo para Oficinas PVC</a>
+                        </h3>
+                        <p class="product-description">Cubículos modulares en PVC para oficinas. Diseño funcional que aumenta la privacidad y productividad del equipo.</p>
+                        <div class="color-selector">
+                            <label>Selecciona vista:</label>
+                            <div class="color-options">
+                                <div class="color-swatch material-selector image-selector" style="background-color:#ffffff;" title="Vista Principal" data-color="Vista Principal" data-image="ImagesProductos/cubiculo1-1.png"></div>
+                                <div class="color-swatch material-selector image-selector" style="background-color:#12075b;" title="Detalle" data-color="Detalle" data-image="ImagesProductos/cubiculo1-2.png"></div>
+                                <div class="color-swatch material-selector image-selector" style="background-color:#c9a876;" title="Acabado" data-color="Acabado" data-image="ImagesProductos/cubiculo1-3.png"></div>
+                                <div class="color-swatch material-selector image-selector" style="background-color:#000000;" title="Instalado" data-color="Instalado" data-image="ImagesProductos/cubiculo1-4.png"></div>
+                            </div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="window.location.href='products/product0012.html'">Ver Detalles</button>
+                            <button class="btn btn-secondary" title="Agregar a favoritos"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Producto 13: Casilleros Lockers PVC -->
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="ImagesProductos/locker1-1.png" alt="Casilleros Lockers PVC" class="product-img">
+                        <span class="al-por-mayor-badge">NUEVO</span>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">
+                            <a href="products/product0013.html">Casilleros Lockers PVC</a>
+                        </h3>
+                        <p class="product-description">Casilleros y lockers modulares en PVC con cerraduras seguras. Solución ideal para gimnasios, piscinas, oficinas e instalaciones industriales.</p>
+                        <div class="color-selector">
+                            <label>Selecciona vista:</label>
+                            <div class="color-options">
+                                <div class="color-swatch material-selector image-selector" style="background-color:#12889f;" title="Vista Principal" data-color="Vista Principal" data-image="ImagesProductos/locker1-1.png"></div>
+                                <div class="color-swatch material-selector image-selector" style="background-color:#ffffff;" title="Vista Frontal" data-color="Vista Frontal" data-image="ImagesProductos/locker1-2.png"></div>
+                                <div class="color-swatch material-selector image-selector" style="background-color:#ddcd1e;" title="Detalle Cerradura" data-color="Detalle Cerradura" data-image="ImagesProductos/locker1-3.png"></div>
+                                <div class="color-swatch material-selector image-selector" style="background-color:#e36009;" title="Acabado" data-color="Acabado" data-image="ImagesProductos/locker1-4.png"></div>
+                                <div class="color-swatch material-selector image-selector" style="background-color:#362314;" title="Instalado" data-color="Instalado" data-image="ImagesProductos/locker1-5.png"></div>
+                            </div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="window.location.href='products/product0013.html'">Ver Detalles</button>
+                            <button class="btn btn-secondary" title="Agregar a favoritos"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Producto 14: Closet Premium Ejecutivo PVC -->
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="ImagesProductos/closet3-1.png" alt="Closet Premium Ejecutivo PVC" class="product-img">
+                        <span class="al-por-mayor-badge">PREMIUM</span>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">
+                            <a href="products/product0014.html">Closet Premium Ejecutivo PVC</a>
+                        </h3>
+                        <p class="product-description">Closet ejecutivo premium en PVC con acabados de lujo, diseño moderno y máxima calidad. Perfecto para espacios profesionales.</p>
+                        <div class="color-selector">
+                            <label>Selecciona vista:</label>
+                            <div class="color-options">
+                                <div class="color-swatch material-selector image-selector" style="background-color:#170a4f;" title="Vista Principal" data-color="Vista Principal" data-image="ImagesProductos/closet3-1.png"></div>
+                                <div class="color-swatch material-selector image-selector" style="background-color:#093d20;" title="Detalle Puertas" data-color="Detalle Puertas" data-image="ImagesProductos/closet3-2.png"></div>
+                                <div class="color-swatch material-selector image-selector" style="background-color:#000000;" title="Interior" data-color="Interior" data-image="ImagesProductos/closet3-3.png"></div>
+                                <div class="color-swatch material-selector image-selector" style="background-color:#ffffff;" title="Acabado" data-color="Acabado" data-image="ImagesProductos/closet3-4.png"></div>
+                                <div class="color-swatch material-selector image-selector" style="background-color:#322114;" title="Instalado" data-color="Instalado" data-image="ImagesProductos/closet3-5.png"></div>
+                            </div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="window.location.href='products/product0014.html'">Ver Detalles</button>
+                            <button class="btn btn-secondary" title="Agregar a favoritos"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Producto 15: Botellero de Pared PVC -->
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="ImagesProductos/botellero1-1.png" alt="Botellero de Pared PVC" class="product-img">
+                        <span class="al-por-mayor-badge">NUEVO</span>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">
+                            <a href="products/product0015.html">Botellero de Pared PVC</a>
+                        </h3>
+                        <p class="product-description">Botellero elegante y moderno en PVC para pared. Perfectamente diseñado para guardar botellas de forma segura y decorativa.</p>
+                        <div class="color-selector">
+                            <label>Selecciona vista:</label>
+                            <div class="color-options">
+                                <div class="color-swatch material-selector image-selector" style="background-color:#ffffff;" title="Instalado" data-color="Instalado" data-image="ImagesProductos/botellero1-2.png"></div>
+                                <div class="color-swatch material-selector image-selector" style="background-color:#180744;" title="Instalado" data-color="Instalado" data-image="ImagesProductos/botellero1-2.png"></div>
+                            </div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="window.location.href='products/product0015.html'">Ver Detalles</button>
+                            <button class="btn btn-secondary" title="Agregar a favoritos"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </article>
+
+
+                <!-- Producto 16: Estantería de Pared PVC -->
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="ImagesProductos/closet4-2.png" alt="Estantería de Pared PVC" class="product-img">
+                        <span class="al-por-mayor-badge">NUEVO</span>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">
+                            <a href="products/product0016.html">Estantería de Pared PVC</a>
+                        </h3>
+                        <p class="product-description">Estantería elegante y versátil en PVC para pared. Múltiples compartimentos ajustables, perfecta para organizar cualquier espacio.</p>
+                        <div class="color-selector">
+                            <label>Selecciona vista:</label>
+                            <div class="color-options">
+                                <div class="color-swatch material-selector image-selector" style="background-color:#171616;" title="Vista Principal" data-color="Vista Principal" data-image="ImagesProductos/closet4-2.png"></div>
+                                <div class="color-swatch material-selector image-selector" style="background-color:#91825e;" title="Detalle" data-color="Detalle" data-image="ImagesProductos/closet4-4.png"></div>
+                                <div class="color-swatch material-selector image-selector" style="background-color:#c1b5a9;" title="Instalada" data-color="Instalada" data-image="ImagesProductos/closet4-3.png"></div>
+                                <div class="color-swatch material-selector image-selector" style="background-color:#000000;" title="Acabados" data-color="Acabados" data-image="ImagesProductos/closet4-1.png"></div>
+                            </div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="window.location.href='products/product0016.html'">Ver Detalles</button>
+                            <button class="btn btn-secondary" title="Agregar a favoritos"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Producto 6: Mueble Peluquería/Barbería PVC -->
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="ImagesProductos/mueble_peluqueria1-1.png" alt="Mueble Multifuncional para Peluquería/Barbería en PVC" class="product-img">
+                        <span class="al-por-mayor-badge">NUEVO</span>
+                        <span class="discount">-20%</span>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">
+                            <a href="products/product0006.html">Mueble Peluquería/Barbería PVC</a>
+                        </h3>
+                        <p class="product-description">Mueble multifuncional completo diseñado específicamente para salones de peluquería y barberías en PVC resistente.</p>
+                        <div class="color-selector">
+                            <label>Selecciona Acabado:</label>
+                            <div class="color-options">
+                                <div class="color-swatch material-selector image-selector" style="background-color:#6B5437;" title="Vista Principal" data-color="Vista Principal" data-image="ImagesProductos/mueble_peluqueria1-1.png"></div>
+                                <div class="color-swatch material-selector image-selector" style="background-color:#f6a5e9;" title="Detalle" data-color="Detalle" data-image="ImagesProductos/mueble_peluqueria1-2.png"></div>
+                                <div class="color-swatch material-selector image-selector" style="background-color:#212a50;" title="Acabado" data-color="Acabado" data-image="ImagesProductos/mueble_peluqueria1-3.png"></div>
+                                <div class="color-swatch material-selector image-selector" style="background-color:#8B6F47;" title="Instalado" data-color="Instalado" data-image="ImagesProductos/mueble_peluqueria1-4.png"></div>
+                                <div class="color-swatch material-selector image-selector" style="background-color:#000000;" title="Detalles" data-color="Detalles" data-image="ImagesProductos/mueble_peluqueria1-5.png"></div>
+                            </div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="window.location.href='products/product0006.html'">Ver Detalles</button>
+                            <button class="btn btn-secondary" title="Agregar a favoritos"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </article>
+
+            
+
+                                                <!-- Producto 9: Mueble Lavabo PVC para Baño -->
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="ImagesProductos/Baño1-1.png" alt="Mueble Lavabo PVC para Baño" class="product-img">
+                        <span class="al-por-mayor-badge">NUEVO</span>
+                        <span class="discount">-15%</span>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">
+                            <a href="products/product0009.html">Mueble Lavabo PVC para Baño</a>
+                        </h3>
+                        <p class="product-description">Mueble lavabo en PVC de alta calidad, perfecto para baños modernos. Resistente a la humedad y muy fácil de limpiar.</p>
+                        <div class="color-selector">
+                            <label>Selecciona Vista:</label>
+                            <div class="color-options">
+                                <div class="color-swatch material-selector image-selector" style="background-color:#d8aa66;" title="Vista 1" data-color="Vista 1" data-image="ImagesProductos/Baño1-1.png"></div>
+                                <div class="color-swatch material-selector image-selector" style="background-color:#3d220a;" title="Vista 2" data-color="Vista 2" data-image="ImagesProductos/Baño1-2.png"></div>
+                                <div class="color-swatch material-selector image-selector" style="background-color:#192637;" title="Vista 3" data-color="Vista 3" data-image="ImagesProductos/Baño1-3.png"></div>
+                                <div class="color-swatch material-selector image-selector" style="background-color:#dabc8f;" title="Vista 4" data-color="Vista 4" data-image="ImagesProductos/Baño1-4.png"></div>
+                                <div class="color-swatch material-selector image-selector" style="background-color:#ffffff;" title="Vista 5" data-color="Vista 5" data-image="ImagesProductos/Baño1-5.png"></div>
+                            </div>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="window.location.href='products/product0009.html'">Ver Detalles</button>
+                            <button class="btn btn-secondary" title="Agregar a favoritos"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <style>
+        /* CATEGORÍAS SIDEBAR */
+        .categories-sidebar {
+            width: 240px;
+            flex-shrink: 0;
+        }
+
+        .category-link:hover {
+            background: linear-gradient(135deg, rgba(0,102,204,0.08) 0%, rgba(255,102,0,0.05) 100%);
+            border-left: 4px solid #0066CC;
+            padding-left: calc(1.2rem - 4px);
+            transform: translateX(4px);
+        }
+
+        .category-link:active {
+            background: linear-gradient(135deg, rgba(0,102,204,0.15) 0%, rgba(255,102,0,0.1) 100%);
+        }
+
+        @media (max-width: 1024px) {
+            main.main-container {
+                flex-direction: column;
+            }
+            .categories-sidebar {
+                width: 100% !important;
+            }
+            aside.categories-sidebar div {
+                display: flex !important;
+                flex-direction: column;
+            }
+            aside.categories-sidebar nav {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 0.5rem;
+                padding: 1rem !important;
+            }
+            .category-link {
+                margin: 0 !important;
+                flex: 1;
+            }
+        }
+        @media (max-width: 768px) {
+            main.main-container {
+                padding: 1rem 0 !important;
+                gap: 1rem !important;
+            }
+            aside.categories-sidebar {
+                width: 100% !important;
+                position: static !important;
+            }
+            aside.categories-sidebar nav {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 0.3rem;
+            }
+            .category-link {
+                padding: 0.8rem 0.9rem !important;
+                font-size: 0.85rem !important;
+            }
+            .category-link i {
+                margin-right: 0.4rem !important;
+            }
+        }
+    </style>
+
+    <script>
+        // FUNCIONALIDAD DE BÚSQUEDA PROFESIONAL CON DROPDOWN DE SUGERENCIAS
+        function initSearch() {
+            const searchInput = document.getElementById('searchInput');
+            const searchBtn = document.getElementById('searchBtn');
+            const suggestionsDiv = document.getElementById('searchSuggestions');
+            
+            if (!searchInput || !searchBtn || !suggestionsDiv) {
+                console.error('Elementos de búsqueda no encontrados');
+                return;
+            }
+
+            let allProducts = [];
+            let currentIndex = -1;
+
+            // Obtener todos los productos al iniciar
+            function loadProducts() {
+                const productCards = document.querySelectorAll('.product-card');
+                allProducts = [];
+                
+                productCards.forEach(card => {
+                    const nameEl = card.querySelector('.product-name');
+                    const descEl = card.querySelector('.product-description');
+                    
+                    if (nameEl) {
+                        allProducts.push({
+                            name: nameEl.textContent.trim(),
+                            description: descEl ? descEl.textContent.trim() : '',
+                            fullText: (nameEl.textContent + ' ' + (descEl ? descEl.textContent : '')).toLowerCase(),
+                            card: card
+                        });
+                    }
+                });
+            }
+
+            // Mostrar sugerencias en el dropdown
+            function showSuggestions(searchTerm) {
+                suggestionsDiv.innerHTML = '';
+                currentIndex = -1;
+
+                if (!searchTerm || searchTerm.length < 1) {
+                    suggestionsDiv.classList.remove('show');
+                    return;
+                }
+
+                const term = searchTerm.toLowerCase();
+                const matches = allProducts.filter(product => 
+                    product.fullText.includes(term)
+                );
+
+                if (matches.length === 0) {
+                    suggestionsDiv.classList.remove('show');
+                    return;
+                }
+
+                // Mostrar máximo 10 sugerencias
+                const topMatches = matches.slice(0, 10);
+                
+                topMatches.forEach((product, index) => {
+                    const suggestionEl = document.createElement('div');
+                    suggestionEl.className = 'suggestion-item';
+                    suggestionEl.setAttribute('data-index', index);
+                    
+                    // Destacar el término buscado en el resultado
+                    let displayName = product.name;
+                    const regex = new RegExp(`(${term})`, 'gi');
+                    displayName = displayName.replace(regex, '<strong style="color: #FF6600;">$1</strong>');
+                    
+                    suggestionEl.innerHTML = `<i class="fas fa-search"></i> ${displayName}`;
+                    
+                    suggestionEl.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        selectSuggestion(product);
+                    });
+
+                    suggestionEl.addEventListener('mouseenter', () => {
+                        currentIndex = index;
+                    });
+
+                    suggestionsDiv.appendChild(suggestionEl);
+                });
+
+                suggestionsDiv.classList.add('show');
+            }
+
+            // Seleccionar una sugerencia
+            function selectSuggestion(product) {
+                searchInput.value = product.name;
+                performSearch(product.name);
+                suggestionsDiv.classList.remove('show');
+                searchInput.focus();
+            }
+
+            // Realizar búsqueda completa
+            function performSearch(searchTerm = null) {
+                const term = (searchTerm || searchInput.value).toLowerCase().trim();
+                const productCards = document.querySelectorAll('.product-card');
+                const productsGrid = document.querySelector('.products-grid');
+                let visibleCount = 0;
+
+                productCards.forEach(card => {
+                    const productName = card.querySelector('.product-name')?.textContent.toLowerCase() || '';
+                    const productDesc = card.querySelector('.product-description')?.textContent.toLowerCase() || '';
+                    
+                    const matches = term === '' || 
+                                   productName.includes(term) || 
+                                   productDesc.includes(term);
+                    
+                    if (matches) {
+                        card.style.display = 'block';
+                        card.classList.add('search-result-animation');
+                        visibleCount++;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                // Mostrar/ocultar mensaje de sin resultados
+                let noResultsMsg = document.getElementById('noResultsMsg');
+                if (visibleCount === 0 && term.length > 0) {
+                    if (!noResultsMsg) {
+                        noResultsMsg = document.createElement('div');
+                        noResultsMsg.id = 'noResultsMsg';
+                        noResultsMsg.style.cssText = 'grid-column: 1/-1; text-align: center; padding: 3rem; color: #999; font-size: 1.1rem;';
+                        productsGrid.appendChild(noResultsMsg);
+                    }
+                    noResultsMsg.textContent = `No encontramos productos que coincidan con "${searchInput.value}"`;
+                    noResultsMsg.style.display = 'block';
+                } else if (noResultsMsg) {
+                    noResultsMsg.style.display = 'none';
+                }
+
+                // Scroll al top
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            // Event listeners
+            searchInput.addEventListener('input', function(e) {
+                showSuggestions(e.target.value);
+            });
+
+            searchInput.addEventListener('focus', function() {
+                if (this.value.length > 0) {
+                    showSuggestions(this.value);
+                }
+            });
+
+            searchInput.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    performSearch();
+                    suggestionsDiv.classList.remove('show');
+                } else if (e.key === 'Escape') {
+                    suggestionsDiv.classList.remove('show');
+                    this.blur();
+                }
+            });
+
+            searchBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                performSearch();
+                suggestionsDiv.classList.remove('show');
+            });
+
+            // Prevenir que el dropdown se cierre cuando se hace clic en él
+            suggestionsDiv.addEventListener('mousedown', function(e) {
+                e.preventDefault();
+            });
+
+            // Cerrar dropdown cuando se hace clic fuera
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.search-bar')) {
+                    suggestionsDiv.classList.remove('show');
+                }
+            });
+
+            // Cargar productos al iniciar
+            loadProducts();
+        }
+
+        // Ejecutar cuando el DOM esté listo
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initSearch);
+        } else {
+            initSearch();
+        }
+    </script>
+
+
+
+    <!-- LÁMINAS: Catálogo profesional tipo librito -->
+    <section class="laminas-section">
+        <div class="laminas-container">
+            <h2 class="section-title">Láminas PVC - Catálogo Completo</h2>
+            <p>Explora nuestras +20 texturas y acabados en formato circular</p>
+
+            <!-- SECCIÓN MADERAS -->
+            <div class="laminas-category">
+                <h3 class="category-title">Maderas Naturales</h3>
+                <div class="laminas-wrap">
+                    <div class="laminas-grid" id="laminasGrid-madera">
+                        <div class="lamina-card" data-image="#" data-name="Roble" data-desc="Madera clara y luminosa">
+                            <div class="lamina-thumb" style="background-image: url('Laminas/m6.jpg')"></div>
+                            <div class="lamina-meta"><strong>Roble</strong><span>Maderas</span></div>
+                        </div>
+                        <div class="lamina-card" data-image="#" data-name="Caoba" data-desc="Madera roja, cálida">
+                            <div class="lamina-thumb" style="background-image: url('Laminas/m7.jpg')"></div>
+                            <div class="lamina-meta"><strong>Caoba</strong><span>Maderas</span></div>
+                        </div>
+                        <div class="lamina-card" data-image="#" data-name="Nogal" data-desc="Madera media, elegante">
+                            <div class="lamina-thumb" style="background-image: url('Laminas/m8.jpg')"></div>
+                            <div class="lamina-meta"><strong>Nogal</strong><span>Maderas</span></div>
+                        </div>
+                        <div class="lamina-card" data-image="#" data-name="Wengué" data-desc="Madera oscura, elegante">
+                            <div class="lamina-thumb" style="background-image: url('Laminas/m3.jpg')"></div>
+                            <div class="lamina-meta"><strong>Wengué</strong><span>Maderas</span></div>
+                        </div>
+                        <div class="lamina-card" data-image="#" data-name="Cedro Natural" data-desc="Madera cálida y profunda">
+                            <div class="lamina-thumb" style="background-image: url('Laminas/m1.jpg')"></div>
+                            <div class="lamina-meta"><strong>Cedro</strong><span>Maderas</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECCIÓN MARMOLIZADO -->
+            <div class="laminas-category">
+                <h3 class="category-title">Efectos Marmolizado</h3>
+                <div class="laminas-wrap">
+                    <div class="laminas-grid" id="laminasGrid-marmol">
+                        <div class="lamina-card" data-image="#" data-name="Zermatt" data-desc="Acabado mate, aspecto piedra">
+                            <div class="lamina-thumb" style="background-image: url('Laminas/Lámina en pvc Zermatt.jpg')"></div>
+                            <div class="lamina-meta"><strong>Zermatt</strong><span>Marmolizado</span></div>
+                        </div>
+                        <div class="lamina-card" data-image="Laminas/Lámina en pvc Arezzo Birllante.jpg" data-name="Arezzo Brillante" data-desc="Acabado espejo, alta reflectividad">
+                            <div class="lamina-thumb" style="background-image: url('Laminas/Lámina en pvc Arezzo Birllante.jpg')"></div>
+                            <div class="lamina-meta"><strong>Arezzo</strong><span>Marmolizado</span></div>
+                        </div>
+                        <div class="lamina-card" data-image="Laminas/Lámina en Pvc Qatar.jpg" data-name="Qatar" data-desc="Acabado moderno, textura sutil">
+                            <div class="lamina-thumb" style="background-image: url('Laminas/Lámina en Pvc Qatar.jpg')"></div>
+                            <div class="lamina-meta"><strong>Qatar</strong><span>Marmolizado</span></div>
+                        </div>
+                        <div class="lamina-card" data-image="Laminas/Lámina en pvc Siena Brillante.jpg" data-name="Siena Brillante" data-desc="Acabado cálido, tono madera">
+                            <div class="lamina-thumb" style="background-image: url('Laminas/Lámina en pvc Siena Brillante.jpg')"></div>
+                            <div class="lamina-meta"><strong>Siena</strong><span>Marmolizado</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECCIÓN COLORES LISOS -->
+            <div class="laminas-category">
+                <h3 class="category-title">Colores Lisos</h3>
+                <div class="laminas-wrap">
+                    <div class="laminas-grid" id="laminasGrid-colores">
+                        <div class="lamina-card" data-image="#" data-name="Blanco" data-desc="Acabado blanco puro, brillante">
+                            <div class="lamina-thumb" style="background: linear-gradient(135deg, #F5F5F5, #FFFFFF); border: 2px solid #E0E0E0;"></div>
+                            <div class="lamina-meta"><strong>Blanco</strong><span>Color Claro</span></div>
+                        </div>
+                        <div class="lamina-card" data-image="#" data-name="Gris Claro" data-desc="Gris moderno, versátil">
+                            <div class="lamina-thumb" style="background: linear-gradient(135deg, #D3D3D3, #E8E8E8);"></div>
+                            <div class="lamina-meta"><strong>Gris</strong><span>Color Claro</span></div>
+                        </div>
+                        <div class="lamina-card" data-image="#" data-name="Gris Oscuro" data-desc="Gris antracita, sofisticado">
+                            <div class="lamina-thumb" style="background: linear-gradient(135deg, #4A4A4A, #696969);"></div>
+                            <div class="lamina-meta"><strong>Gris</strong><span>Color Oscuro</span></div>
+                        </div>
+                        <div class="lamina-card" data-image="#" data-name="Negro" data-desc="Negro profundo, minimalista">
+                            <div class="lamina-thumb" style="background-color: #333333;"></div>
+                            <div class="lamina-meta"><strong>Negro</strong><span>Color Oscuro</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- COLOR PERSONALIZADO -->
+    <section class="custom-color-section">
+        <div class="custom-color-container">
+            <h2 class="section-title">¿Quieres un Color Personalizado?</h2>
+            <p class="custom-color-subtitle">Elige tu color exacto y comunícate con nuestro asesor por WhatsApp</p>
+            
+            <div class="custom-color-box">
+                <div class="color-selector-group">
+                    <label for="customColor">Selecciona tu Color</label>
+                    <div class="color-input-wrapper">
+                        <input type="color" id="customColor" class="color-picker-custom" value="#0066CC">
+                        <span class="color-code-custom" id="colorCodeCustom">#0066CC</span>
+                    </div>
+                </div>
+                
+                <button class="btn-whatsapp-custom" id="btnWhatsappCustom">
+                    <i class="fab fa-whatsapp" id="whatsappIcon"></i>
+                    <span>Enviar Color a WhatsApp</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Color Picker Functionality
+        function initColorPicker() {
+            const colorInput = document.getElementById('customColor');
+            const colorCode = document.getElementById('colorCodeCustom');
+            const colorPreview = document.getElementById('colorCirclePreview');
+            const whatsappIcon = document.getElementById('whatsappIcon');
+            const whatsappBtn = document.querySelector('.btn-whatsapp-custom');
+            const btnWhatsappCustom = document.getElementById('btnWhatsappCustom');
+
+            if (!colorInput) return;
+
+            // Función para determinar si un color es claro u oscuro
+            function isColorLight(hex) {
+                const color = hex.replace("#", "");
+                const r = parseInt(color.substr(0, 2), 16);
+                const g = parseInt(color.substr(2, 2), 16);
+                const b = parseInt(color.substr(4, 2), 16);
+                
+                // Fórmula de luminancia relativa (WCAG)
+                const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+                return luminance > 0.5; // Si es > 0.5, es color claro
+            }
+
+            // Función para cambiar color
+            function changeColor(color) {
+                const hex = color.toUpperCase();
+                const isLight = isColorLight(color);
+                
+                // Actualizar código
+                if (colorCode) colorCode.textContent = hex;
+                
+                // Actualizar círculo preview
+                if (colorPreview) colorPreview.style.backgroundColor = color;
+                
+                // Actualizar icono y botón
+                if (whatsappIcon) {
+                    whatsappIcon.style.color = color;
+                    whatsappIcon.style.fill = color;
+                }
+                
+                // Actualizar botón con gradiente
+                if (whatsappBtn) {
+                    whatsappBtn.style.background = `linear-gradient(135deg, ${color}, ${darkenColor(color, 20)})`;
+                    whatsappBtn.style.backgroundColor = color;
+                    
+                    // Cambiar color del texto y del icono según el brillo
+                    if (isLight) {
+                        // Color claro = texto oscuro
+                        whatsappBtn.style.color = '#333333';
+                        if (whatsappIcon) {
+                            whatsappIcon.style.color = '#333333';
+                            whatsappIcon.style.fill = '#333333';
+                        }
+                    } else {
+                        // Color oscuro = texto blanco
+                        whatsappBtn.style.color = 'white';
+                        if (whatsappIcon) {
+                            whatsappIcon.style.color = 'white';
+                            whatsappIcon.style.fill = 'white';
+                        }
+                    }
+                }
+                
+                console.log('Color actualizado:', hex, '| Es claro:', isLight);
+            }
+
+            // Oscurecer color para gradiente
+            function darkenColor(hex, percent) {
+                const num = parseInt(hex.replace("#", ""), 16);
+                const amt = Math.round(2.55 * percent);
+                const R = Math.max(0, Math.min(255, (num >> 16) + amt));
+                const G = Math.max(0, Math.min(255, (num >> 8 & 0x00FF) + amt));
+                const B = Math.max(0, Math.min(255, (num & 0x0000FF) + amt));
+                return "#" + (0x1000000 + R * 0x10000 + G * 0x100 + B).toString(16).slice(1);
+            }
+
+            // Event listeners - múltiples eventos para garantizar
+            colorInput.addEventListener('input', (e) => changeColor(e.target.value));
+            colorInput.addEventListener('change', (e) => changeColor(e.target.value));
+            colorInput.addEventListener('click', (e) => changeColor(e.target.value));
+            
+            // Inicializar con color actual
+            changeColor(colorInput.value);
+
+            // Click en botón WhatsApp
+            if (btnWhatsappCustom) {
+                btnWhatsappCustom.addEventListener('click', sendColorToWhatsApp);
+            }
+        }
+
+        // Inicializar cuando esté listo el DOM
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initColorPicker);
+        } else {
+            initColorPicker();
+        }
+    </script>
+
+    <!-- LOGIN MODAL -->
+    <div class="login-modal" id="loginModal">
+        <div class="login-modal-content">
+            <button class="close-modal" id="closeModal">&times;</button>
+            
+            <div class="login-container">
+                <!-- TAB LOGIN -->
+                <div class="login-tab active" id="loginTab">
+                    <h2>Inicia sesión con tu cuenta</h2>
+                    
+                    <form class="login-form">
+                        <div class="form-group">
+                            <label for="email">Ingresa tu correo</label>
+                            <input type="email" id="email" placeholder="ejemplo@correo.com" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="password">Contraseña</label>
+                            <input type="password" id="password" placeholder="Tu contraseña segura" required>
+                        </div>
+                        
+                        <button type="submit" class="btn-login">Iniciar Sesión</button>
+                        
+                        <p class="forgot-password">
+                            <a href="#">¿Olvidaste tu contraseña?</a>
+                        </p>
+                    </form>
+                    
+                    <div class="divider">O</div>
+                    
+                    <button class="btn-tab-switch" id="switchToRegister">Crear nueva cuenta</button>
+                </div>
+                
+                <!-- TAB REGISTER -->
+                <div class="login-tab" id="registerTab">
+                    <h2>Crea tu cuenta</h2>
+                    <p class="register-subtitle">Si aún no la tienes, vive una experiencia completa de compra:</p>
+                    
+                    <form class="register-form">
+                        <div class="form-group">
+                            <label for="regName">Nombre completo</label>
+                            <input type="text" id="regName" placeholder="Tu nombre" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="regEmail">Correo electrónico</label>
+                            <input type="email" id="regEmail" placeholder="tu@correo.com" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="regPassword">Contraseña</label>
+                            <input type="password" id="regPassword" placeholder="Mínimo 8 caracteres" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="regPhone">Teléfono</label>
+                            <input type="tel" id="regPhone" placeholder="+57 3242104067">
+                        </div>
+                        
+                        <button type="submit" class="btn-login">Crear Cuenta</button>
+                    </form>
+                    
+                    <div class="divider">O</div>
+                    
+                    <button class="btn-tab-switch" id="switchToLogin">Volver al inicio de sesión</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>Sobre Nosotros</h4>
+                <p>DIMAFEL es tu tienda online de confianza para materiales de construcción (Manejamos principalmente PVC y Aglomerado) y mejora del hogar.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Redes Sociales</h4>
+                <ul>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">X</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contacto</h4>
+                <p>Email: acabadosdimafel@gmail.com</p>
+                <p>Teléfono: +57 3242104067</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 DIMAFEL. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- WHATSAPP BUTTON -->
+    <div class="whatsapp-button" id="whatsappBtn">
+        <i class="fab fa-whatsapp"></i>
+        <span class="whatsapp-tooltip">¡Chatea con nosotros!</span>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="cart.js"></script>
+    <script src="laminas.js"></script>
+</body>
+</html>

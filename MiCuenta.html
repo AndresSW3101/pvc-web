@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="laminas.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Mi Cuenta — PVG</title>
+    <link rel="icon" href="Icons/PVG_Logo.png?v=2" type="image/png">
+    <style>
+        /* Account Specific Styles */
+        .account-container {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        /* Hero Section */
+        .account-hero {
+            background: linear-gradient(135deg, #0066CC 0%, #FF6600 100%);
+            border-radius: 16px;
+            padding: 3.5rem 2rem;
+            color: white;
+            margin-bottom: 3rem;
+            box-shadow: 0 15px 50px rgba(255, 102, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .account-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+
+        .account-hero-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .avatar-hero {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+            color: #FFD700;
+            font-weight: 700;
+            flex-shrink: 0;
+            border: 4px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 12px 40px rgba(255, 102, 0, 0.4);
+        }
+
+        .account-hero-info {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .account-hero-info h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .account-hero-info p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            margin-bottom: 0.3rem;
+        }
+
+        .account-hero-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 0.5rem;
+        }
+
+        .btn-hero {
+            padding: 0.7rem 1.8rem;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .btn-hero-white {
+            background: white;
+            color: #0066CC;
+        }
+
+        .btn-hero-white:hover {
+            background: #FFD700;
+            color: #0066CC;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 102, 0, 0.4);
+        }
+
+        .btn-hero-outline {
+            background: rgba(255, 102, 0, 0.2);
+            color: white;
+            border: 2px solid #FFD700;
+        }
+
+        .btn-hero-outline:hover {
+            background: #FF6600;
+            border-color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #FFFFFF, #F0F4FF);
+            border-radius: 12px;
+            padding: 1.8rem;
+            box-shadow: 0 4px 15px rgba(0, 102, 204, 0.12);
+            text-align: center;
+            transition: var(--transition);
+            border-top: 4px solid #FF6600;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(255, 102, 0, 0.25);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #0066CC;
+            margin-bottom: 0.3rem;
+        }
+
+        .stat-label {
+            color: var(--light-text);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Content Sections */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .content-section {
+            background: linear-gradient(135deg, #FFFFFF, #F0F4FF);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 6px 20px rgba(0, 102, 204, 0.12);
+            border: 2px solid #0066CC;
+        }
+
+        .content-section h2 {
+            font-size: 1.5rem;
+            background: linear-gradient(135deg, #0066CC, #FF6600);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .content-section h2 i {
+            font-size: 1.8rem;
+            color: #FF6600;
+        }
+
+        /* Tabs */
+        .tabs-container {
+            background: linear-gradient(135deg, #FFFFFF, #F0F4FF);
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 102, 204, 0.12);
+            overflow: hidden;
+            margin-bottom: 2rem;
+            border: 2px solid #0066CC;
+        }
+
+        .tabs-header {
+            display: flex;
+            border-bottom: 3px solid #FF6600;
+            background: linear-gradient(to right, #E8F1FF, #FFF0E8);
+        }
+
+        .tab-button {
+            flex: 1;
+            padding: 1.2rem;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            font-weight: 600;
+            color: #666;
+            transition: var(--transition);
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .tab-button.active {
+            color: #FF6600;
+            border-bottom: 4px solid #FF6600;
+            margin-bottom: -3px;
+            background: rgba(255, 102, 0, 0.05);
+        }
+
+        .tab-button:hover {
+            background: #E8F1FF;
+            color: #0066CC;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 2.5rem;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Information Cards */
+        .info-card {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .info-item {
+            background: linear-gradient(135deg, #FFFFFF, #F0F4FF);
+            padding: 1.8rem;
+            border-radius: 10px;
+            border-left: 5px solid #FF6600;
+            transition: var(--transition);
+            box-shadow: 0 4px 12px rgba(0, 102, 204, 0.1);
+        }
+
+        .info-item:hover {
+            box-shadow: 0 8px 25px rgba(255, 102, 0, 0.2);
+            transform: translateY(-3px);
+            border-left-color: #0066CC;
+        }
+
+        .info-item label {
+            display: block;
+            color: #0066CC;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .info-item value {
+            display: block;
+            color: #FF6600;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        /* Purchase History */
+        .purchases-list {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .purchase-card {
+            background: linear-gradient(135deg, #FFFFFF, #F0F4FF);
+            border: 2px solid #0066CC;
+            border-radius: 12px;
+            padding: 1.8rem;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .purchase-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(to right, #0066CC, #FF6600);
+        }
+
+        .purchase-card:hover {
+            box-shadow: 0 12px 35px rgba(255, 102, 0, 0.25);
+            transform: translateY(-5px);
+            border-color: #FF6600;
+        }
+
+        .purchase-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .purchase-info {
+            flex: 1;
+        }
+
+        .purchase-number {
+            font-weight: 700;
+            color: #FF6600;
+            font-size: 1.2rem;
+        }
+
+        .purchase-date {
+            color: var(--light-text);
+            font-size: 0.85rem;
+            margin-top: 0.3rem;
+        }
+
+        .purchase-status {
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        .status-pending {
+            background: linear-gradient(135deg, #FFF0E8, #FFE8D8);
+            color: #FF6600;
+        }
+
+        .status-completed {
+            background: linear-gradient(135deg, #E8F5E9, #D4EDDA);
+            color: #00AA44;
+        }
+
+        .status-cancelled {
+            background: linear-gradient(135deg, #FFE8E8, #F8D7DA);
+            color: #CC0000;
+        }
+
+        .purchase-items {
+            margin: 1.2rem 0;
+            padding: 1.2rem 0;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .purchase-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.7rem 0;
+            color: var(--text-color);
+        }
+
+        .purchase-item-name {
+            font-weight: 600;
+            flex: 1;
+        }
+
+        .purchase-item-qty {
+            color: var(--light-text);
+            margin: 0 1rem;
+            font-size: 0.9rem;
+        }
+
+        .purchase-item-price {
+            font-weight: 700;
+            color: #FF6600;
+            min-width: 100px;
+            text-align: right;
+        }
+
+        .purchase-total {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 1.2rem;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #0066CC;
+            padding-top: 1rem;
+            border-top: 2px solid #FF6600;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: var(--light-text);
+        }
+
+        .empty-state i {
+            font-size: 3.5rem;
+            color: #FF6600;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .empty-state p {
+            font-size: 1.1rem;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #FFFFFF, #F0F4FF);
+            border-radius: 16px;
+            padding: 2.5rem;
+            max-width: 450px;
+            box-shadow: 0 25px 75px rgba(0, 102, 204, 0.2);
+            animation: slideUp 0.3s ease-out;
+            border: 2px solid #0066CC;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-header {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #FF6600;
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .modal-header i {
+            font-size: 2rem;
+        }
+
+        .modal-body {
+            color: var(--text-color);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        .modal-footer {
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-end;
+        }
+
+        .modal-footer button {
+            padding: 0.9rem 1.8rem;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            font-weight: 700;
+            transition: var(--transition);
+            font-size: 0.95rem;
+        }
+
+        .modal-cancel {
+            background: linear-gradient(135deg, #E8F1FF, #FFF0E8);
+            color: #0066CC;
+            border: 2px solid #0066CC;
+        }
+
+        .modal-cancel:hover {
+            background: #0066CC;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .modal-confirm {
+            background: linear-gradient(135deg, #FF6600, #FF4400);
+            color: white;
+        }
+
+        .modal-confirm:hover {
+            background: linear-gradient(135deg, #FF4400, #FF6600);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 102, 0, 0.3);
+        }
+
+        /* Loading */
+        .loading {
+            display: inline-block;
+            animation: spin 1s linear infinite;
+        }
+
+        .btn-danger-account {
+            background: linear-gradient(135deg, #FF6600, #FF4400);
+            color: white;
+        }
+
+        .btn-danger-account:hover {
+            background: linear-gradient(135deg, #FF4400, #FF6600);
+            box-shadow: 0 6px 20px rgba(255, 102, 0, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .btn-hero {
+            padding: 0.7rem 1.8rem;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .account-hero-content {
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .account-container {
+                padding: 0 1rem;
+            }
+
+            .account-hero {
+                padding: 2rem 1.5rem;
+            }
+
+            .account-hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .account-hero-info h1 {
+                font-size: 1.8rem;
+            }
+
+            .account-hero-actions {
+                justify-content: center;
+            }
+
+            .avatar-hero {
+                width: 120px;
+                height: 120px;
+                font-size: 3rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .tabs-header {
+                flex-direction: column;
+            }
+
+            .tab-button {
+                justify-content: flex-start;
+                padding: 1rem;
+                border-bottom: none !important;
+                border-left: 4px solid transparent;
+            }
+
+            .tab-button.active {
+                border-left: 4px solid var(--primary-color);
+                border-bottom: none;
+            }
+
+            .tab-content {
+                padding: 1.5rem;
+            }
+
+            .purchase-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .info-card {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-content {
+                padding: 1.5rem;
+                max-width: calc(100% - 2rem);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .account-hero {
+                padding: 1.5rem 1rem;
+            }
+
+            .avatar-hero {
+                width: 100px;
+                height: 100px;
+                font-size: 2.5rem;
+            }
+
+            .account-hero-info h1 {
+                font-size: 1.5rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .btn-hero {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .modal-footer {
+                flex-direction: column-reverse;
+            }
+
+            .modal-footer button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- TOP HEADER -->
+    <div class="top-header">
+        <div class="header-info">
+            <span><i class="fas fa-phone"></i> SERVICIO AL CLIENTE +57 3242104067</span>
+            <span><i class="fas fa-store"></i> TIENDA VIRTUAL Y PRODUCTOS A MEDIDA</span>
+            <span><i class="fas fa-question-circle"></i> acabadosdimafel@gmail.com</span>
+            <span><i class="fas fa-map-marked-alt"></i> A NIVEL NACIONAL (COLOMBIA)</span>
+        </div>
+
+    </div>
+
+    <!-- MAIN HEADER -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <img src="Icons/PVG_Logo.png?v=2" alt="PVG" class="logo-img">
+                <span>PVG</span>
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="¿Qué estás buscando?">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            <nav class="header-nav">
+                <a href="index.html" class="nav-item">
+                    <i class="fas fa-home"></i>
+                    <span>Inicio</span>
+                </a>
+                <a href="SobreNosotros.html" class="nav-item">
+                    <i class="fas fa-info-circle"></i>
+                    <span>Sobre Nosotros</span>
+                </a>
+                <a href="MiCuenta.html" class="nav-item active">
+                    <i class="fas fa-user"></i>
+                    <span>Mi Cuenta</span>
+                </a>
+                <a href="cart.html" class="nav-item carrito-item">
+                    <span class="carrito-badge">0</span>
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>Carrito</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <div class="account-container">
+        <!-- Hero Section -->
+        <div class="account-hero">
+            <div class="account-hero-content">
+                <div class="avatar-hero" id="avatar">U</div>
+                <div class="account-hero-info">
+                    <h1 id="name">Cargando...</h1>
+                    <p id="email">-</p>
+                    <div class="account-hero-actions">
+                        <button class="btn-hero btn-hero-white" id="backBtn">
+                            <i class="fas fa-arrow-left"></i> Volver
+                        </button>
+                        <button class="btn-hero btn-hero-white" id="logoutBtn">
+                            <i class="fas fa-sign-out-alt"></i> Cerrar sesión
+                        </button>
+                        <button class="btn-hero btn-hero-outline" id="deleteAccountBtn">
+                            <i class="fas fa-trash"></i> Eliminar cuenta
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats Grid -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number" id="totalPurchases">0</div>
+                <div class="stat-label">Compras Realizadas</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="totalSpent">$0</div>
+                <div class="stat-label">Gasto Total</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="completedOrders">0</div>
+                <div class="stat-label">Pedidos Completados</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="memberSince">-</div>
+                <div class="stat-label">Miembro Desde</div>
+            </div>
+        </div>
+
+        <!-- Content Grid -->
+        <div class="content-grid">
+            <!-- Información Personal -->
+            <div class="content-section">
+                <h2><i class="fas fa-user-circle"></i> Información Personal</h2>
+                <div class="info-card">
+                    <div class="info-item">
+                        <label>Nombre Completo</label>
+                        <value id="full-name">-</value>
+                    </div>
+                    <div class="info-item">
+                        <label>Email</label>
+                        <value id="email-info">-</value>
+                    </div>
+                    <div class="info-item">
+                        <label>Teléfono</label>
+                        <value id="phone">-</value>
+                    </div>
+                    <div class="info-item">
+                        <label>Tipo de Cuenta</label>
+                        <value id="role">-</value>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Resumen de Actividad -->
+            <div class="content-section">
+                <h2><i class="fas fa-chart-line"></i> Actividad de Cuenta</h2>
+                <div class="info-card">
+                    <div class="info-item">
+                        <label>Registrado</label>
+                        <value id="created_at">-</value>
+                    </div>
+                    <div class="info-item">
+                        <label>Última Compra</label>
+                        <value id="last-purchase">-</value>
+                    </div>
+                    <div class="info-item">
+                        <label>Estado</label>
+                        <value style="color: #2E7D32;">Activo</value>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tabs para Información Detallada -->
+        <div class="tabs-container">
+            <div class="tabs-header">
+                <button class="tab-button active" data-tab="purchases">
+                    <i class="fas fa-shopping-bag"></i> Historial de Compras
+                </button>
+                <button class="tab-button" data-tab="information">
+                    <i class="fas fa-file-invoice"></i> Detalles Completos
+                </button>
+            </div>
+
+            <!-- Purchases Tab -->
+            <div id="purchases" class="tab-content active">
+                <div id="purchasesContainer">
+                    <div class="empty-state">
+                        <i class="fas fa-spinner loading"></i>
+                        <p>Cargando historial de compras...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Details Tab -->
+            <div id="information" class="tab-content">
+                <h3 style="margin-bottom: 1.5rem; color: var(--primary-color);">Información de la Cuenta</h3>
+                <div class="info-card">
+                    <div class="info-item">
+                        <label>ID de Usuario</label>
+                        <value id="user-id">-</value>
+                    </div>
+                    <div class="info-item">
+                        <label>Nombre Completo</label>
+                        <value id="detail-name">-</value>
+                    </div>
+                    <div class="info-item">
+                        <label>Email</label>
+                        <value id="detail-email">-</value>
+                    </div>
+                    <div class="info-item">
+                        <label>Teléfono</label>
+                        <value id="detail-phone">-</value>
+                    </div>
+                    <div class="info-item">
+                        <label>Rol</label>
+                        <value id="detail-role">-</value>
+                    </div>
+                    <div class="info-item">
+                        <label>Fecha de Registro</label>
+                        <value id="detail-created">-</value>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Delete Account Section -->
+        <div class="content-section" style="margin-top: 2rem; border-top: 3px solid #e53935; background: linear-gradient(135deg, #fff5f5 0%, #ffffff 100%);">
+            <h2 style="color: #e53935;"><i class="fas fa-exclamation-triangle"></i> Zona Peligrosa</h2>
+            <p style="margin-bottom: 1.5rem; color: var(--light-text);">Una vez que elimines tu cuenta, no hay forma de recuperarla. Por favor, sé absolutamente seguro.</p>
+            <button class="btn-hero btn-danger-account" id="deleteAccountBtn2" style="width: fit-content; padding: 1rem 2rem; font-size: 1rem;">
+                <i class="fas fa-trash-alt"></i> Eliminar mi Cuenta Permanentemente
+            </button>
+        </div>
+    </div>
+
+    <!-- Delete Account Modal -->
+    <div class="modal" id="deleteModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <i class="fas fa-exclamation-triangle"></i> Eliminar Cuenta
+            </div>
+            <div class="modal-body">
+                <p><strong>¿Está seguro?</strong></p>
+                <p>Esta acción no se puede deshacer. Se eliminarán todos tus datos, historial de compras y cuenta de forma permanente.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-cancel" id="cancelDelete">Cancelar</button>
+                <button class="modal-confirm" id="confirmDelete">Eliminar Cuenta</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // User Data Global
+        let userData = {};
+        let purchasesData = [];
+
+        // Redirect to home
+        function redirectToHome() {
+            window.location.href = 'index.html';
+        }
+
+        // Format date
+        function formatDate(dateString) {
+            const options = { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' };
+            return new Date(dateString).toLocaleDateString('es-ES', options);
+        }
+
+        // Format date short
+        function formatDateShort(dateString) {
+            const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
+            return new Date(dateString).toLocaleDateString('es-ES', options);
+        }
+
+        // Format currency
+        function formatCurrency(amount) {
+            return new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP' }).format(amount);
+        }
+
+        // Tab functionality
+        document.querySelectorAll('.tab-button').forEach(button => {
+            button.addEventListener('click', () => {
+                const tabName = button.getAttribute('data-tab');
+                
+                document.querySelectorAll('.tab-button').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                
+                button.classList.add('active');
+                document.getElementById(tabName).classList.add('active');
+
+                if (tabName === 'purchases' && purchasesData.length === 0) {
+                    loadPurchases();
+                }
+            });
+        });
+
+        // Load user data
+        function loadUserData() {
+            fetch('api/me.php', { credentials: 'same-origin' })
+                .then(r => r.json())
+                .then(data => {
+                    if (!data.success) return redirectToHome();
+                    userData = data.user;
+                    
+                    // Update header
+                    document.getElementById('name').textContent = userData.name;
+                    document.getElementById('email').textContent = userData.email;
+                    document.getElementById('avatar').textContent = (userData.name || 'U').trim().charAt(0).toUpperCase();
+                    
+                    // Update information sections
+                    document.getElementById('full-name').textContent = userData.name;
+                    document.getElementById('email-info').textContent = userData.email;
+                    document.getElementById('detail-email').textContent = userData.email;
+                    document.getElementById('phone').textContent = userData.phone || '-';
+                    document.getElementById('detail-phone').textContent = userData.phone || '-';
+                    document.getElementById('role').textContent = userData.role || 'Usuario';
+                    document.getElementById('detail-role').textContent = userData.role || 'Usuario';
+                    document.getElementById('created_at').textContent = formatDate(userData.created_at);
+                    document.getElementById('detail-created').textContent = formatDate(userData.created_at);
+                    document.getElementById('detail-name').textContent = userData.name;
+                    document.getElementById('user-id').textContent = '#' + userData.id;
+                    
+                    // Calculate member since (year)
+                    const year = new Date(userData.created_at).getFullYear();
+                    document.getElementById('memberSince').textContent = year;
+                    
+                    // Load purchases after user data
+                    loadPurchasesInitial();
+                })
+                .catch(err => { console.error(err); redirectToHome(); });
+        }
+
+        // Load purchases
+        function loadPurchases() {
+            const container = document.getElementById('purchasesContainer');
+            container.innerHTML = '<div class="empty-state"><i class="fas fa-spinner loading"></i><p>Cargando historial de compras...</p></div>';
+
+            fetch('api/purchases.php', { credentials: 'same-origin' })
+                .then(r => r.json())
+                .then(data => {
+                    if (!data.success) {
+                        container.innerHTML = '<div class="empty-state"><i class="fas fa-exclamation-circle"></i><p>Error al cargar las compras</p></div>';
+                        return;
+                    }
+
+                    purchasesData = data.purchases || [];
+                    renderPurchases();
+                })
+                .catch(err => {
+                    console.error(err);
+                    container.innerHTML = '<div class="empty-state"><i class="fas fa-exclamation-circle"></i><p>Error al cargar las compras</p></div>';
+                });
+        }
+
+        // Load purchases initially and calculate stats
+        function loadPurchasesInitial() {
+            fetch('api/purchases.php', { credentials: 'same-origin' })
+                .then(r => r.json())
+                .then(data => {
+                    if (data.success) {
+                        purchasesData = data.purchases || [];
+                        calculateStats();
+                        renderPurchases();
+                    } else {
+                        document.getElementById('totalPurchases').textContent = '0';
+                        document.getElementById('totalSpent').textContent = '$0';
+                        document.getElementById('completedOrders').textContent = '0';
+                        document.getElementById('last-purchase').textContent = '-';
+                    }
+                })
+                .catch(err => {
+                    console.error(err);
+                    document.getElementById('totalPurchases').textContent = '0';
+                    document.getElementById('totalSpent').textContent = '$0';
+                    document.getElementById('completedOrders').textContent = '0';
+                    document.getElementById('last-purchase').textContent = '-';
+                });
+        }
+
+        // Calculate statistics
+        function calculateStats() {
+            if (!purchasesData || purchasesData.length === 0) {
+                document.getElementById('totalPurchases').textContent = '0';
+                document.getElementById('totalSpent').textContent = '$0';
+                document.getElementById('completedOrders').textContent = '0';
+                document.getElementById('last-purchase').textContent = '-';
+                return;
+            }
+
+            let totalSpent = 0;
+            let completedCount = 0;
+            let lastPurchaseDate = null;
+
+            purchasesData.forEach(purchase => {
+                totalSpent += parseFloat(purchase.total) || 0;
+                if (purchase.status === 'completed') completedCount++;
+                if (!lastPurchaseDate || new Date(purchase.created_at) > new Date(lastPurchaseDate)) {
+                    lastPurchaseDate = purchase.created_at;
+                }
+            });
+
+            document.getElementById('totalPurchases').textContent = purchasesData.length;
+            document.getElementById('totalSpent').textContent = formatCurrency(totalSpent).replace('COP', '').trim();
+            document.getElementById('completedOrders').textContent = completedCount;
+            document.getElementById('last-purchase').textContent = lastPurchaseDate ? formatDateShort(lastPurchaseDate) : '-';
+        }
+
+        // Render purchases
+        function renderPurchases() {
+            const container = document.getElementById('purchasesContainer');
+            
+            if (!purchasesData || purchasesData.length === 0) {
+                container.innerHTML = '<div class="empty-state"><i class="fas fa-shopping-bag"></i><p>No tienes compras registradas aún</p></div>';
+                return;
+            }
+
+            let html = '<div class="purchases-list">';
+            purchasesData.forEach((purchase) => {
+                const statusClass = `status-${purchase.status}`;
+                const items = purchase.items || [];
+                
+                html += `
+                    <div class="purchase-card">
+                        <div class="purchase-header">
+                            <div class="purchase-info">
+                                <div class="purchase-number">Compra #${purchase.id}</div>
+                                <div class="purchase-date">${formatDate(purchase.created_at)}</div>
+                            </div>
+                            <span class="purchase-status ${statusClass}">${purchase.status.toUpperCase()}</span>
+                        </div>
+                        <div class="purchase-items">
+                            ${items.map(item => `
+                                <div class="purchase-item">
+                                    <span class="purchase-item-name">${item.product_name}</span>
+                                    <span class="purchase-item-qty">x${item.quantity}</span>
+                                    <span class="purchase-item-price">${formatCurrency(item.price)}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                        <div class="purchase-total">
+                            Total: ${formatCurrency(purchase.total)}
+                        </div>
+                    </div>
+                `;
+            });
+            html += '</div>';
+            container.innerHTML = html;
+        }
+
+        // Back button
+        document.getElementById('backBtn').addEventListener('click', redirectToHome);
+
+        // Logout button
+        document.getElementById('logoutBtn').addEventListener('click', () => {
+            fetch('api/logout.php', { method: 'POST', credentials: 'same-origin' })
+                .then(() => redirectToHome())
+                .catch(() => redirectToHome());
+        });
+
+        // Delete account modal
+        const deleteModal = document.getElementById('deleteModal');
+        
+        document.getElementById('deleteAccountBtn').addEventListener('click', () => {
+            deleteModal.classList.add('active');
+        });
+
+        document.getElementById('deleteAccountBtn2').addEventListener('click', () => {
+            deleteModal.classList.add('active');
+        });
+
+        document.getElementById('cancelDelete').addEventListener('click', () => {
+            deleteModal.classList.remove('active');
+        });
+
+        document.getElementById('confirmDelete').addEventListener('click', () => {
+            const btn = document.getElementById('confirmDelete');
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-spinner loading"></i> Eliminando...';
+
+            fetch('api/delete_account.php', { method: 'POST', credentials: 'same-origin' })
+                .then(r => r.json())
+                .then(data => {
+                    if (data.success) {
+                        alert('Cuenta eliminada correctamente');
+                        redirectToHome();
+                    } else {
+                        alert('Error al eliminar la cuenta: ' + data.error);
+                        btn.disabled = false;
+                        btn.innerHTML = 'Eliminar Cuenta';
+                    }
+                })
+                .catch(err => {
+                    console.error(err);
+                    alert('Error al eliminar la cuenta');
+                    btn.disabled = false;
+                    btn.innerHTML = 'Eliminar Cuenta';
+                });
+        });
+
+        // Close modal when clicking outside
+        deleteModal.addEventListener('click', (e) => {
+            if (e.target === deleteModal) {
+                deleteModal.classList.remove('active');
+            }
+        });
+
+        // Initialize on page load
+        window.addEventListener('load', () => {
+            loadUserData();
+        });
+    </script>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>Sobre Nosotros</h4>
+                <p>DIMAFEL es tu tienda online de confianza para materiales de construcción (Manejamos principalmente PVC y Aglomerado) y mejora del hogar.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Redes Sociales</h4>
+                <ul>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">X</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contacto</h4>
+                <p>Email: acabadosdimafel@gmail.com</p>
+                <p>Teléfono: +57 3242104067</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 DIMAFEL. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
