@@ -8,6 +8,28 @@
     <title>Sobre Nosotros - DIMAFEL || Fabricantes de Decoración del Hogar</title>
     <link rel="icon" href="Icons/PVG_Logo.png?v=2" type="image/png">
     <style>
+        /* FUERZA 1 COLUMNA - ANULA TODO */
+        * {
+            --columns: 1fr !important;
+        }
+        
+        .about-intro, .materials-container, .combination-features, 
+        .products-grid, .values-container, .contact-info,
+        .materials-section, .products-showcase {
+            display: block !important;
+            width: 100% !important;
+        }
+        
+        .about-intro > *, .materials-container > *, .combination-features > *,
+        .products-grid > *, .values-container > *, .contact-info > * {
+            width: 100% !important;
+            margin-bottom: 2rem !important;
+        }
+        
+        .section-title {
+            width: 100% !important;
+        }
+        
         /* PÁGINA SOBRE NOSOTROS - MEJORAS VISUALES */
         .about-page { background: white; }
         
@@ -95,10 +117,14 @@
         }
 
         .materials-container {
-            display: flex !important;
-            flex-direction: column !important;
-            gap: 3rem;
+            display: block !important;
+            width: 100%;
             margin-bottom: 3rem;
+        }
+        
+        .materials-container > * {
+            width: 100%;
+            margin-bottom: 2rem;
         }
 
         .material-card {
@@ -180,9 +206,13 @@
         }
 
         .combination-features {
-            display: flex !important;
-            flex-direction: column !important;
-            gap: 2rem;
+            display: block !important;
+            width: 100%;
+        }
+        
+        .combination-features > * {
+            width: 100%;
+            margin-bottom: 2rem !important;
         }
 
         .feature {
@@ -231,9 +261,13 @@
         }
 
         .products-grid {
-            display: flex !important;
-            flex-direction: column !important;
-            gap: 2rem;
+            display: block !important;
+            width: 100%;
+        }
+        
+        .products-grid > * {
+            width: 100%;
+            margin-bottom: 2rem !important;
         }
 
         .product-showcase-card {
@@ -280,9 +314,13 @@
         }
 
         .values-container {
-            display: flex !important;
-            flex-direction: column !important;
-            gap: 2rem;
+            display: block !important;
+            width: 100%;
+        }
+        
+        .values-container > * {
+            width: 100%;
+            margin-bottom: 2rem !important;
         }
 
         .value-card {
@@ -333,10 +371,13 @@
         }
 
         .contact-info {
-            display: flex !important;
-            flex-direction: column !important;
-            gap: 2rem;
+            display: block !important;
             width: 100%;
+        }
+        
+        .contact-info > * {
+            width: 100%;
+            margin-bottom: 2rem !important;
         }
 
         .contact-item {
