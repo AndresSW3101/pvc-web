@@ -1512,6 +1512,22 @@
         <span class="whatsapp-tooltip">¡Chatea con nosotros!</span>
     </div>
 
+    <script>
+        // Hacer los articles (product-card) completamente clickeables
+        document.querySelectorAll('.product-card').forEach(card => {
+            const link = card.querySelector('a[href*="products/"]');
+            if (link) {
+                card.style.cursor = 'pointer';
+                card.addEventListener('click', function(e) {
+                    // Evitar conflicto con clicks en botones con onclick
+                    if (!e.target.closest('button')) {
+                        window.location.href = link.href;
+                    }
+                });
+            }
+        });
+    </script>
+
     <script src="script.js"></script>
     <script src="cart.js"></script>
     <script src="laminas.js"></script>
