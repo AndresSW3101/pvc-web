@@ -7,563 +7,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <title>Sobre Nosotros - DIMAFEL || Fabricantes de Decoración del Hogar</title>
     <link rel="icon" href="Icons/PVG_Logo.png?v=2" type="image/png">
-    <style>
-        /* FUERZA 1 COLUMNA - ANULA TODO */
-        * {
-            --columns: 1fr !important;
-        }
-        
-        .about-intro, .materials-container, .combination-features, 
-        .products-grid, .values-container, .contact-info,
-        .materials-section, .products-showcase {
-            display: block !important;
-            width: 100% !important;
-        }
-        
-        .about-intro > *, .materials-container > *, .combination-features > *,
-        .products-grid > *, .values-container > *, .contact-info > * {
-            width: 100% !important;
-            margin-bottom: 2rem !important;
-        }
-        
-        .section-title {
-            width: 100% !important;
-        }
-        
-        /* PÁGINA SOBRE NOSOTROS - MEJORAS VISUALES */
-        .about-page { background: white; }
-        
-        .about-hero {
-            background: linear-gradient(135deg, #0066CC 0%, #FF6600 100%);
-            color: white;
-            padding: 6rem 2rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .about-hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -10%;
-            width: 500px;
-            height: 500px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 50%;
-        }
-        
-        .about-hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .about-hero h1 {
-            font-size: 3.5rem;
-            font-weight: 900;
-            margin-bottom: 1rem;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
-        }
-        
-        .about-hero p {
-            font-size: 1.3rem;
-            opacity: 0.95;
-            line-height: 1.6;
-        }
 
-        /* SECCIONES */
-        .main-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
-
-        .about-section {
-            padding: 5rem 0;
-            border-bottom: 1px solid #f0f0f0;
-        }
-
-        .about-section:last-child {
-            border-bottom: none;
-        }
-
-        .about-intro {
-            display: block !important;
-        }
-
-        .about-text h2 {
-            font-size: 2.5rem;
-            color: #0066CC;
-            margin-bottom: 1.5rem;
-            font-weight: 800;
-        }
-
-        .about-text p {
-            font-size: 1.05rem;
-            color: #555;
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-        }
-
-        /* TARJETAS DE MATERIALES */
-        .section-title {
-            font-size: 2.5rem;
-            color: #0066CC;
-            text-align: center;
-            margin-bottom: 3rem;
-            font-weight: 800;
-        }
-
-        .materials-container {
-            display: block !important;
-            width: 100%;
-            margin-bottom: 3rem;
-        }
-        
-        .materials-container > * {
-            width: 100%;
-            margin-bottom: 2rem;
-        }
-
-        .material-card {
-            background: linear-gradient(135deg, #f8faff 0%, #fff5f0 100%);
-            border-radius: 12px;
-            padding: 2.5rem;
-            border-left: 5px solid #FF6600;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-        }
-
-        .material-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 30px rgba(255,102,0,0.15);
-        }
-
-        .material-icon {
-            font-size: 3rem;
-            color: #0066CC;
-            margin-bottom: 1rem;
-        }
-
-        .material-card h3 {
-            font-size: 1.5rem;
-            color: #0066CC;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-
-        .material-card p {
-            color: #666;
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-        }
-
-        .benefits-list {
-            list-style: none;
-            gap: 0.8rem;
-        }
-
-        .benefits-list li {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.8rem;
-            color: #555;
-            line-height: 1.5;
-            margin-bottom: 0.8rem;
-        }
-
-        .benefits-list i {
-            color: #FF6600;
-            margin-top: 0.3rem;
-            flex-shrink: 0;
-        }
-
-        /* SECCIÓN COMBINACIÓN */
-        .combination-section {
-            background: linear-gradient(135deg, rgba(0,102,204,0.05) 0%, rgba(255,102,0,0.05) 100%);
-            border-radius: 12px;
-            padding: 4rem;
-        }
-
-        .combination-content {
-            width: 100%;
-        }
-
-        .combination-content h2 {
-            font-size: 2.2rem;
-            color: #0066CC;
-            text-align: center;
-            margin-bottom: 1rem;
-        }
-
-        .intro-text {
-            text-align: center;
-            font-size: 1.1rem;
-            color: #666;
-            margin-bottom: 2.5rem;
-        }
-
-        .combination-features {
-            display: block !important;
-            width: 100%;
-        }
-        
-        .combination-features > * {
-            width: 100%;
-            margin-bottom: 2rem !important;
-        }
-
-        .feature {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            transition: all 0.3s ease;
-        }
-
-        .feature:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 30px rgba(0,102,204,0.15);
-        }
-
-        .feature i {
-            font-size: 2.5rem;
-            color: #FF6600;
-            margin-bottom: 1rem;
-        }
-
-        .feature h4 {
-            font-size: 1.1rem;
-            color: #0066CC;
-            margin-bottom: 0.8rem;
-            font-weight: 700;
-        }
-
-        .feature p {
-            color: #666;
-            font-size: 0.95rem;
-            line-height: 1.5;
-        }
-
-        /* VITRINA DE PRODUCTOS */
-        .products-showcase {
-            background: white;
-        }
-
-        .section-intro {
-            text-align: center;
-            font-size: 1.1rem;
-            color: #666;
-            margin-bottom: 3rem;
-        }
-
-        .products-grid {
-            display: block !important;
-            width: 100%;
-        }
-        
-        .products-grid > * {
-            width: 100%;
-            margin-bottom: 2rem !important;
-        }
-
-        .product-showcase-card {
-            background: linear-gradient(135deg, #ffffff 0%, #f8faff 100%);
-            border-radius: 12px;
-            padding: 2rem;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            border: 2px solid transparent;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .product-showcase-card:hover {
-            border-color: #FF6600;
-            transform: translateY(-8px);
-            box-shadow: 0 12px 30px rgba(255,102,0,0.2);
-            background: linear-gradient(135deg, #fff5f0 0%, #f0f4ff 100%);
-        }
-
-        .showcase-icon {
-            font-size: 3rem;
-            color: #FF6600;
-            margin-bottom: 1rem;
-        }
-
-        .product-showcase-card h4 {
-            font-size: 1.2rem;
-            color: #0066CC;
-            margin-bottom: 0.8rem;
-            font-weight: 700;
-        }
-
-        .product-showcase-card p {
-            color: #666;
-            font-size: 0.95rem;
-        }
-
-        /* VALORES */
-        .values-section {
-            background: linear-gradient(135deg, #f0f4ff 0%, #fff5f0 100%);
-            border-radius: 12px;
-            padding: 4rem;
-        }
-
-        .values-container {
-            display: block !important;
-            width: 100%;
-        }
-        
-        .values-container > * {
-            width: 100%;
-            margin-bottom: 2rem !important;
-        }
-
-        .value-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            border-top: 4px solid #FF6600;
-            transition: all 0.3s ease;
-        }
-
-        .value-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.12);
-        }
-
-        .value-card h3 {
-            color: #0066CC;
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
-            font-weight: 700;
-        }
-
-        .value-card i {
-            font-size: 2.5rem;
-            color: #FF6600;
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        .value-card p {
-            color: #666;
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        /* CONTACTO */
-        .contact-section {
-            background: linear-gradient(135deg, #0066CC 0%, #004a99 100%);
-            color: white;
-            border-radius: 12px;
-            padding: 4rem;
-        }
-
-        .contact-content {
-            display: block;
-        }
-
-        .contact-info {
-            display: block !important;
-            width: 100%;
-        }
-        
-        .contact-info > * {
-            width: 100%;
-            margin-bottom: 2rem !important;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 1.5rem;
-            background: rgba(255,255,255,0.1);
-            padding: 2rem;
-            border-radius: 10px;
-        }
-
-        .contact-item i {
-            font-size: 2rem;
-            color: #FF6600;
-            flex-shrink: 0;
-        }
-
-        .contact-item h4 {
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-            font-weight: 700;
-        }
-
-        .contact-item p {
-            font-size: 0.95rem;
-            opacity: 0.9;
-            margin: 0.3rem 0;
-        }
-
-        /* RESPONSIVE */
-        @media (max-width: 1024px) {
-            .combination-features {
-                grid-template-columns: 1fr;
-            }
-
-            .values-container {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-info {
-                grid-template-columns: 1fr;
-            }
-
-            .products-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .about-hero {
-                padding: 4rem 1.5rem;
-            }
-
-            .about-hero h1 {
-                font-size: 2rem;
-            }
-
-            .about-hero p {
-                font-size: 1rem;
-            }
-
-            .about-intro {
-                grid-template-columns: 1fr;
-            }
-
-            .materials-container {
-                grid-template-columns: 1fr;
-            }
-
-            .combination-features {
-                grid-template-columns: 1fr;
-            }
-
-            .values-container {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-info {
-                grid-template-columns: 1fr;
-            }
-
-            .products-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .section-title {
-                font-size: 1.8rem;
-                margin-bottom: 2rem;
-            }
-
-            .about-text h2 {
-                font-size: 1.8rem;
-            }
-
-            .materials-container {
-                gap: 1.5rem;
-            }
-
-            .about-section {
-                padding: 3rem 0;
-            }
-
-            .material-card h3 {
-                font-size: 1.3rem;
-            }
-
-            .value-card h3 {
-                font-size: 1.1rem;
-            }
-
-            .feature h4 {
-                font-size: 1rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .about-hero {
-                padding: 3rem 1rem;
-            }
-
-            .about-hero h1 {
-                font-size: 1.5rem;
-            }
-
-            .about-hero p {
-                font-size: 0.9rem;
-            }
-
-            .section-title {
-                font-size: 1.5rem;
-            }
-
-            .about-text h2 {
-                font-size: 1.5rem;
-            }
-
-            .material-card {
-                padding: 1.5rem;
-            }
-
-            .contact-item {
-                padding: 1.5rem;
-            }
-
-            .main-container {
-                padding: 0 0.5rem;
-            }
-
-            .about-section {
-                padding: 2rem 0;
-            }
-
-            .combination-section {
-                padding: 2rem;
-            }
-
-            .values-section {
-                padding: 2rem;
-            }
-
-            .contact-section {
-                padding: 2rem;
-            }
-
-            .products-grid {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-
-            .product-showcase-card {
-                padding: 1.5rem;
-            }
-
-            .feature i {
-                font-size: 2rem;
-            }
-
-            .value-card {
-                padding: 1.5rem;
-            }
-        }
-    </style>
 </head>
-<body class="about-page">
+<body>
 
     <!-- TOP HEADER -->
     <div class="top-header">
@@ -613,23 +59,32 @@
     <section class="about-hero">
         <div class="about-hero-content">
             <h1>Sobre Nosotros</h1>
-            <p>Somos fabricantes de productos para decoración del hogar con materiales de la más alta calidad.</p>
-            <p>Nuestro compromiso es ofrecer soluciones de calidad que transformen los espacios de nuestros clientes, combinando funcionalidad, estética y durabilidad</p>
+            <p>Fabricantes de productos para decoración del hogar con materiales de la más alta calidad</p>
         </div>
     </section>
 
     <!-- MAIN CONTENT -->
-    <main>
- 
+    <main class="main-container">
+        <!-- SECCIÓN INTRODUCCIÓN -->
+        <section class="about-section">
+            <div class="about-intro">
+                <div class="about-text">
+                    <h2>Bienvenido a DIMAFEL</h2>
+                    <p>Somos una empresa dedicada a la fabricación y comercialización de productos innovadores para la decoración y mejora del hogar. Con más de una década de experiencia, nos hemos posicionado como líderes en la industria de materiales de construcción y diseño interior.</p>
+                    <p>Nuestro compromiso es ofrecer soluciones de calidad que transformen los espacios de nuestros clientes, combinando funcionalidad, estética y durabilidad.</p>
+                </div>
+            </div>
+        </section>
+
         <!-- SECCIÓN MATERIALES PRINCIPALES -->
-        <section>
+        <section class="about-section materials-section">
             <h2 class="section-title">Nuestros Materiales Principales</h2>
             <div class="materials-container">
                 <div class="material-card">
                     <div class="material-icon">
                         <i class="fas fa-flask-vial"></i>
                     </div>
-                    <h3>PVC</h3>
+                    <h3>PVC Premium</h3>
                     <p>El PVC es nuestro material estrella, elegido por sus múltiples beneficios:</p>
                     <ul class="benefits-list">
                         <li><i class="fas fa-check-circle"></i> <strong>Durabilidad extrema:</strong> Resistente al agua, humedad y agentes químicos</li>
@@ -660,7 +115,7 @@
         </section>
 
         <!-- SECCIÓN COMBINACIÓN -->
-        <section>
+        <section class="about-section combination-section">
             <div class="combination-content">
                 <h2>La Combinación Perfecta</h2>
                 <p class="intro-text">La fusión entre PVC y madera crea productos espectaculares que reúnen lo mejor de ambos mundos:</p>
@@ -707,6 +162,13 @@
                     </div>
                     <h4>Puertas Premium</h4>
                     <p>Acabados elegantes y duraderos</p>
+                </div>
+                <div class="product-showcase-card">
+                    <div class="showcase-icon">
+                        <i class="fas fa-window-maximize"></i>
+                    </div>
+                    <h4>Ventanas</h4>
+                    <p>Aislamiento y seguridad</p>
                 </div>
                 <div class="product-showcase-card">
                     <div class="showcase-icon">
@@ -757,7 +219,7 @@
 
         <!-- SECCIÓN CONTACTO -->
         <section class="about-section contact-section">
-            <h2 style="color:white; text-align:center; width:100%; margin-bottom: 2rem;">Contacta con Nosotros</h2>
+            <div class="contact-item"><h2 style="color:white; text-align:center; width:100%;">Contacta con Nosotros</h2></div>
             <div class="contact-content">
                 <div class="contact-info">
                     <div class="contact-item">
