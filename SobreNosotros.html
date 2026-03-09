@@ -162,7 +162,11 @@
         .combination-section {
             background: linear-gradient(135deg, rgba(0,102,204,0.05) 0%, rgba(255,102,0,0.05) 100%);
             border-radius: 12px;
-            padding: 4rem !important;
+            padding: 4rem;
+        }
+
+        .combination-content {
+            width: 100%;
         }
 
         .combination-content h2 {
@@ -276,7 +280,7 @@
         .values-section {
             background: linear-gradient(135deg, #f0f4ff 0%, #fff5f0 100%);
             border-radius: 12px;
-            padding: 4rem !important;
+            padding: 4rem;
         }
 
         .values-container {
@@ -325,13 +329,11 @@
             background: linear-gradient(135deg, #0066CC 0%, #004a99 100%);
             color: white;
             border-radius: 12px;
-            padding: 4rem !important;
+            padding: 4rem;
         }
 
         .contact-content {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 3rem;
+            display: block;
         }
 
         .contact-info {
@@ -369,9 +371,35 @@
         }
 
         /* RESPONSIVE */
+        @media (max-width: 1024px) {
+            .combination-features {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .values-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .contact-info {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+        }
+
         @media (max-width: 768px) {
+            .about-hero {
+                padding: 4rem 1.5rem;
+            }
+
             .about-hero h1 {
                 font-size: 2rem;
+            }
+
+            .about-hero p {
+                font-size: 1rem;
             }
 
             .about-intro {
@@ -383,15 +411,116 @@
             }
 
             .combination-features {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: 1fr;
             }
 
             .values-container {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: 1fr;
             }
 
             .contact-info {
                 grid-template-columns: 1fr;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+                margin-bottom: 2rem;
+            }
+
+            .about-text h2 {
+                font-size: 1.8rem;
+            }
+
+            .materials-container {
+                gap: 1.5rem;
+            }
+
+            .about-section {
+                padding: 3rem 0;
+            }
+
+            .material-card h3 {
+                font-size: 1.3rem;
+            }
+
+            .value-card h3 {
+                font-size: 1.1rem;
+            }
+
+            .feature h4 {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .about-hero {
+                padding: 3rem 1rem;
+            }
+
+            .about-hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .about-hero p {
+                font-size: 0.9rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .about-text h2 {
+                font-size: 1.5rem;
+            }
+
+            .material-card {
+                padding: 1.5rem;
+            }
+
+            .contact-item {
+                padding: 1.5rem;
+            }
+
+            .main-container {
+                padding: 0 0.5rem;
+            }
+
+            .about-section {
+                padding: 2rem 0;
+            }
+
+            .combination-section {
+                padding: 2rem;
+            }
+
+            .values-section {
+                padding: 2rem;
+            }
+
+            .contact-section {
+                padding: 2rem;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .product-showcase-card {
+                padding: 1.5rem;
+            }
+
+            .feature i {
+                font-size: 2rem;
+            }
+
+            .value-card {
+                padding: 1.5rem;
             }
         }
     </style>
@@ -606,7 +735,7 @@
 
         <!-- SECCIÓN CONTACTO -->
         <section class="about-section contact-section">
-            <div class="contact-item"><h2 style="color:white; text-align:center; width:100%;">Contacta con Nosotros</h2></div>
+            <h2 style="color:white; text-align:center; width:100%; margin-bottom: 2rem;">Contacta con Nosotros</h2>
             <div class="contact-content">
                 <div class="contact-info">
                     <div class="contact-item">
