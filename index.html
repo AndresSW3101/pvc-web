@@ -1519,8 +1519,8 @@
             if (link) {
                 card.style.cursor = 'pointer';
                 card.addEventListener('click', function(e) {
-                    // Evitar conflicto con clicks en botones con onclick
-                    if (!e.target.closest('button')) {
+                    // Evitar conflicto con clicks en botones y color swatches
+                    if (!e.target.closest('button') && !e.target.closest('.color-swatch')) {
                         window.location.href = link.href;
                     }
                 });
