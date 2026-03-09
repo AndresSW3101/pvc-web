@@ -2298,8 +2298,8 @@ body {
 }
 
 .materials-container {
-    display: block !important;
-    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 2rem;
     margin-top: 2rem;
 }
@@ -2308,8 +2308,6 @@ body {
     background: white;
     padding: 2rem;
     border-radius: 8px;
-    width: 100% !important;
-    margin-bottom: 2rem !important;
     box-shadow: var(--shadow);
     transition: var(--transition);
     border-left: 4px solid var(--primary-color);
@@ -2379,8 +2377,8 @@ body {
 }
 
 .combination-features {
-    display: block !important;
-    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 2rem;
     margin-top: 2rem;
 }
@@ -2392,8 +2390,6 @@ body {
     border-radius: 8px;
     box-shadow: var(--shadow);
     transition: var(--transition);
-    width: 100% !important;
-    margin-bottom: 1.5rem !important;
 }
 
 .feature:hover {
@@ -2431,8 +2427,8 @@ body {
 }
 
 .products-grid {
-    display: block !important;
-    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 1.5rem;
     margin-top: 2rem;
 }
@@ -2442,8 +2438,6 @@ body {
     padding: 1.5rem;
     border-radius: 8px;
     box-shadow: var(--shadow);
-    width: 100% !important;
-    margin-bottom: 1.5rem !important;
     transition: var(--transition);
     border-top: 3px solid var(--primary-color);
 }
@@ -2478,8 +2472,8 @@ body {
 }
 
 .values-container {
-    display: block !important;
-    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
     margin-top: 2rem;
 }
@@ -2492,8 +2486,6 @@ body {
     transition: var(--transition);
     text-align: center;
     border-right: 3px solid var(--primary-color);
-    width: 100% !important;
-    margin-bottom: 1.5rem !important;
 }
 
 .value-card:hover {
@@ -2559,8 +2551,8 @@ body {
 }
 
 .contact-info {
-    display: block !important;
-    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 2rem;
     margin-top: 2rem;
 }
@@ -2573,8 +2565,6 @@ body {
     padding: 1.5rem;
     border-radius: 8px;
     transition: var(--transition);
-    width: 100% !important;
-    margin-bottom: 1rem !important;
 }
 
 .contact-item:hover {
