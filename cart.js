@@ -226,7 +226,7 @@ function showNotification(message, type = 'success') {
 // WhatsApp Button
 function setupWhatsAppButton() {
     const whatsappBtn = document.getElementById('whatsappBtn');
-    const phoneNumber = '573001234567';
+    const phoneNumber = '573242104067';
     const message = encodeURIComponent('Hola, tengo una consulta sobre mis compras en PVC PRO.');
 
     if (whatsappBtn) {

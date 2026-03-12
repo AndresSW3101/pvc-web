@@ -450,7 +450,7 @@ if (searchInput) {
 // ============================================
 
 const whatsappBtn = document.getElementById('whatsappBtn');
-const phoneNumber = '573001234567'; // Número de WhatsApp
+const phoneNumber = '573242104067'; // Número de WhatsApp
 const message = encodeURIComponent('Hola, me interesa conocer más sobre los productos PVC. ¿Podrías ayudarme?');
 
 if (whatsappBtn) {

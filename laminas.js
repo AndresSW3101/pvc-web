@@ -89,7 +89,7 @@ function sendColorToWhatsApp() {
   const colorRGB = colorPicker.value;
   
   // Número de WhatsApp (reemplaza con tu número)
-  const phoneNumber = '573001234567'; // Formato: código país + número
+  const phoneNumber = '573242104067'; // Formato: código país + número
   
   // Mensaje personalizado
   const message = `Hola! 👋 Me gustaría solicitar asesoría sobre láminas PVC personalizadas.\n\n` +
