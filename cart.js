@@ -225,6 +225,10 @@ function showNotification(message, type = 'success') {
 
 // WhatsApp Button
 function setupWhatsAppButton() {
+    // Evitar ejecutar múltiples veces
+    if (window.whatsappButtonSetup) return;
+    window.whatsappButtonSetup = true;
+
     const whatsappBtn = document.getElementById('whatsappBtn');
     const phoneNumber = '573242104067';
     const message = encodeURIComponent('Hola Dimafel, me gustaría conocer más sobre sus productos y diseños.');
