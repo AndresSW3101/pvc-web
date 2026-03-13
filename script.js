@@ -367,9 +367,6 @@ imageSelectorElements.forEach(swatch => {
         } else {
             console.log('Imagen no encontrada');
         }
-        
-        const colorName = this.getAttribute('data-color');
-        showNotification(`Color seleccionado: ${colorName}`);
     });
 });
 
