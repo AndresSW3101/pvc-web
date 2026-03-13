@@ -227,7 +227,7 @@ function showNotification(message, type = 'success') {
 function setupWhatsAppButton() {
     const whatsappBtn = document.getElementById('whatsappBtn');
     const phoneNumber = '573242104067';
-    const message = encodeURIComponent('Hola, tengo una consulta sobre mis compras en PVC PRO.');
+    const message = encodeURIComponent('Hola Dimafel, me gustaría conocer más sobre sus productos y diseños.');
 
     if (whatsappBtn) {
         whatsappBtn.addEventListener('click', function(e) {
