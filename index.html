@@ -1397,6 +1397,237 @@
         }
     </script>
 
+    <!-- INSTAGRAM SECTION -->
+    <section class="instagram-section">
+        <div class="instagram-container">
+            <div class="instagram-content">
+                <div class="instagram-icon-wrapper">
+                    <img src="Icons/Instagram_icon.png" alt="Instagram DIMAFEL" class="instagram-icon">
+                </div>
+                <div class="instagram-text">
+                    <h2 class="instagram-title">Síguenos en Instagram</h2>
+                    <p class="instagram-subtitle">Descubre nuestros últimos proyectos, diseños exclusivos y promociones especiales</p>
+                    <div class="instagram-highlights">
+                        <div class="highlight-item">
+                            <i class="fas fa-images"></i>
+                            <span>Galería de Proyectos</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-star"></i>
+                            <span>Diseños Exclusivos</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-tag"></i>
+                            <span>Ofertas y Promociones</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-heart"></i>
+                            <span>Consejos y Tips</span>
+                        </div>
+                    </div>
+                    <a href="https://www.instagram.com/dimafel.co/" target="_blank" class="btn-instagram">
+                        <i class="fab fa-instagram"></i> Visita nuestro Instagram
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        /* INSTAGRAM SECTION STYLES */
+        .instagram-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 4rem 2rem;
+            margin: 3rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .instagram-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .instagram-section::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -5%;
+            width: 400px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .instagram-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .instagram-content {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .instagram-icon-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            perspective: 1000px;
+        }
+
+        .instagram-icon {
+            width: 200px;
+            height: 200px;
+            filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3));
+            transition: transform 0.3s ease;
+            animation: floatIcon 3s ease-in-out infinite;
+        }
+
+        @keyframes floatIcon {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .instagram-icon:hover {
+            transform: scale(1.1);
+        }
+
+        .instagram-text {
+            color: white;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .instagram-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            letter-spacing: -1px;
+        }
+
+        .instagram-subtitle {
+            font-size: 1.1rem;
+            margin: 0;
+            opacity: 0.95;
+            line-height: 1.6;
+        }
+
+        .instagram-highlights {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .highlight-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 1rem;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .highlight-item:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateX(5px);
+        }
+
+        .highlight-item i {
+            font-size: 1.3rem;
+            color: #ffd700;
+            min-width: 30px;
+        }
+
+        .highlight-item span {
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        .btn-instagram {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            padding: 1rem 2rem;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            width: fit-content;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-instagram:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            background: #f0f0f0;
+        }
+
+        .btn-instagram i {
+            font-size: 1.3rem;
+        }
+
+        @media (max-width: 768px) {
+            .instagram-section {
+                padding: 2rem 1rem;
+            }
+
+            .instagram-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .instagram-title {
+                font-size: 1.8rem;
+            }
+
+            .instagram-subtitle {
+                font-size: 1rem;
+            }
+
+            .instagram-icon {
+                width: 150px;
+                height: 150px;
+            }
+
+            .instagram-highlights {
+                grid-template-columns: 1fr;
+            }
+
+            .btn-instagram {
+                width: 100%;
+            }
+        }
+    </style>
+
     <!-- LOGIN MODAL -->
     <div class="login-modal" id="loginModal">
         <div class="login-modal-content">
