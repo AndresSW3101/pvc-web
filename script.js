@@ -442,33 +442,6 @@ if (searchInput) {
     });
 }
 
-// ============================================
-// WHATSAPP BUTTON FUNCTIONALITY
-// ============================================
-
-const whatsappBtn = document.getElementById('whatsappBtn');
-const phoneNumber = '573242104067'; // Número de WhatsApp
-const message = encodeURIComponent('Hola, me interesa conocer más sobre los productos PVC. ¿Podrías ayudarme?');
-
-if (whatsappBtn) {
-    whatsappBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        // Redirigir a WhatsApp Web
-        window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
-        // Agregar efecto de pulso
-        whatsappBtn.classList.remove('pulse');
-        setTimeout(() => whatsappBtn.classList.add('pulse'), 100);
-    });
-    
-    // Efecto hover suave - pausar animación
-    whatsappBtn.addEventListener('mouseenter', function() {
-        this.style.animation = 'none';
-    });
-    
-    whatsappBtn.addEventListener('mouseleave', function() {
-        this.style.animation = 'floatWhatsapp 3s ease-in-out infinite';
-    });
-}
 
 // ============================================
 // LOGIN MODAL FUNCTIONALITY
